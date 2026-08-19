@@ -1,0 +1,32 @@
+# Build results
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Publish artifacts
+publish/
+out/
+
+# NuGet
+*.nupkg
+*.snupkg
+.nuget/
+packages/
+
+# IDE
+.vs/
+.idea/
+*.DotSettings.user
+
+# Sensitive configuration
+appsettings.Development.json
+.env
+
+# OS files
+Thumbs.db
+.DS_Store
