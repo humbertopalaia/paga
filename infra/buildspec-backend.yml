@@ -1,29 +1,27 @@
-version: 0.2
+﻿version: 0.2
 
 phases:
   install:
+    runtime-versions:
+      dotnet: 10.0
     commands:
       - dotnet tool install --global dotnet-ef
       - export PATH="$PATH:$HOME/.dotnet/tools"
 
   pre_build:
     commands:
-      - cd backend
-      - dotnet restore
-      - dotnet build --no-restore
+      - cd backend && dotnet restore && dotnet build --no-restore
 
   build:
     commands:
-      - cd backend
-      - dotnet test --no-build
+      - cd backend && dotnet test --no-build
 
   post_build:
     commands:
-      - cd backend
-      - dotnet publish src/Paga.Api -c Release -o $CODEBUILD_SRC_DIR/publish
-      - dotnet ef migrations script --idempotent --project src/Paga.Infrastructure --startup-project src/Paga.Api -o $CODEBUILD_SRC_DIR/publish/migrations.sql
+      - cd backend && dotnet publish src/Paga.Api -c Release -o $CODEBUILD_SRC_DIR/publish
+      - cd backend && dotnet ef migrations script --idempotent --project src/Paga.Infrastructure --startup-project src/Paga.Api -o $CODEBUILD_SRC_DIR/publish/migrations.sql
       - cp $CODEBUILD_SRC_DIR/infra/appspec.yml $CODEBUILD_SRC_DIR/publish/appspec.yml
-      - cp -r $CODEBUILD_SRC_DIR/infra/scripts $CODEBUILD_SRC_DIR/publish/infra/scripts
+      - cp -r $CODEBUILD_SRC_DIR/infra/scripts $CODEBUILD_SRC_DIR/publish/scripts
 
 artifacts:
   base-directory: publish
