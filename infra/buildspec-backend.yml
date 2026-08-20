@@ -21,7 +21,7 @@ phases:
       - cd $CODEBUILD_SRC_DIR/backend && dotnet publish src/Paga.Api -c Release -o $CODEBUILD_SRC_DIR/publish
       - cd $CODEBUILD_SRC_DIR/backend && dotnet ef migrations script --idempotent --project src/Paga.Infrastructure --startup-project src/Paga.Api -o $CODEBUILD_SRC_DIR/publish/migrations.sql
       - cp $CODEBUILD_SRC_DIR/infra/appspec.yml $CODEBUILD_SRC_DIR/publish/appspec.yml
-      - cp -r $CODEBUILD_SRC_DIR/infra/scripts $CODEBUILD_SRC_DIR/publish/scripts
+      - mkdir -p $CODEBUILD_SRC_DIR/publish/infra && cp -r $CODEBUILD_SRC_DIR/infra/scripts $CODEBUILD_SRC_DIR/publish/infra/scripts
 
 artifacts:
   base-directory: publish
