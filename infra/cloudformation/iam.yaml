@@ -57,6 +57,11 @@ Resources:
                   - !Sub arn:aws:codedeploy:${AWS::Region}:${AWS::AccountId}:application:paga-${Environment}-*
                   - !Sub arn:aws:codedeploy:${AWS::Region}:${AWS::AccountId}:deploymentgroup:paga-${Environment}-*/*
                   - !Sub arn:aws:codedeploy:${AWS::Region}:${AWS::AccountId}:deploymentconfig:*
+              - Sid: CodeStarConnectionAccess
+                Effect: Allow
+                Action:
+                  - codestar-connections:UseConnection
+                Resource: "*"
               - Sid: ArtifactBucketAccess
                 Effect: Allow
                 Action:
@@ -199,3 +204,15 @@ Outputs:
     Value: !GetAtt CodeDeployRole.Arn
     Export:
       Name: !Sub paga-${Environment}-codedeploy-role-arn
+
+  CodePipelineRoleArn:
+    Description: ARN of the CodePipeline service role
+    Value: !GetAtt CodePipelineRole.Arn
+    Export:
+      Name: !Sub paga-${Environment}-codepipeline-role-arn
+
+  CodeBuildRoleArn:
+    Description: ARN of the CodeBuild service role
+    Value: !GetAtt CodeBuildRole.Arn
+    Export:
+      Name: !Sub paga-${Environment}-codebuild-role-arn
