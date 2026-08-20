@@ -1,17 +1,17 @@
-﻿version: 0.2
+version: 0.2
 
 phases:
   install:
     runtime-versions:
       nodejs: 20
     commands:
-      - cd frontend && npm ci
+      - cd $CODEBUILD_SRC_DIR/frontend && npm ci
 
   build:
     commands:
-      - cd frontend && npx ng build --configuration production
+      - cd $CODEBUILD_SRC_DIR/frontend && npx ng build --configuration production
 
   post_build:
     commands:
-      - aws s3 sync frontend/dist/frontend/browser s3://$FRONTEND_BUCKET_NAME --delete
+      - aws s3 sync $CODEBUILD_SRC_DIR/frontend/dist/frontend/browser s3://$FRONTEND_BUCKET_NAME --delete
       - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
