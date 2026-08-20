@@ -85,6 +85,7 @@ try
     builder.Services.AddScoped<ITokenService, TokenService>();
     builder.Services.AddScoped<IAuthService, AuthService>();
     builder.Services.AddScoped<IUserService, UserService>();
+    builder.Services.AddScoped<IExpenseTypeService, ExpenseTypeService>();
     builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
 
     // Health checks
