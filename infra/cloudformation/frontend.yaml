@@ -1,0 +1,170 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >-
+  PAGA MVP - Frontend Stack.
+  Creates S3 bucket for Angular SPA, Origin Access Control, and CloudFront distribution
+  with API proxy behavior to EC2.
+
+Parameters:
+  Environment:
+    Type: String
+    Default: prod
+    Description: Environment name used in resource naming and exports.
+
+  BucketName:
+    Type: String
+    Description: Name for the S3 bucket hosting the Angular SPA. Required, must be globally unique.
+
+  Ec2PublicDns:
+    Type: String
+    Description: Public DNS hostname of the EC2 instance running the PAGA API (e.g., ec2-54-123-45-67.compute-1.amazonaws.com).
+
+Resources:
+  # --- S3 Bucket for SPA ---
+  SpaBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref BucketName
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      Tags:
+        - Key: Name
+          Value: !Sub "paga-${Environment}-spa-bucket"
+
+  # --- S3 Bucket Policy: allow only CloudFront OAC ---
+  SpaBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref SpaBucket
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: AllowCloudFrontOAC
+            Effect: Allow
+            Principal:
+              Service: cloudfront.amazonaws.com
+            Action: s3:GetObject
+            Resource: !Sub "${SpaBucket.Arn}/*"
+            Condition:
+              StringEquals:
+                AWS:SourceArn: !Sub "arn:aws:cloudfront::${AWS::AccountId}:distribution/${Distribution}"
+
+  # --- Origin Access Control ---
+  OriginAccessControl:
+    Type: AWS::CloudFront::OriginAccessControl
+    Properties:
+      OriginAccessControlConfig:
+        Name: !Sub "paga-${Environment}-oac"
+        Description: OAC for PAGA SPA S3 bucket
+        OriginAccessControlOriginType: s3
+        SigningBehavior: always
+        SigningProtocol: sigv4
+
+  # --- CloudFront Distribution ---
+  Distribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Enabled: true
+        Comment: !Sub "paga-${Environment} - SPA + API proxy"
+        DefaultRootObject: index.html
+        HttpVersion: http2
+
+        # Origins
+        Origins:
+          # S3 origin for Angular SPA
+          - Id: S3Origin
+            DomainName: !GetAtt SpaBucket.RegionalDomainName
+            OriginAccessControlId: !Ref OriginAccessControl
+            S3OriginConfig:
+              OriginAccessIdentity: ""
+
+          # EC2 origin for API (HTTP port 80)
+          - Id: Ec2Origin
+            DomainName: !Ref Ec2PublicDns
+            CustomOriginConfig:
+              HTTPPort: 80
+              OriginProtocolPolicy: http-only
+              OriginSSLProtocols:
+                - TLSv1.2
+
+        # Default behavior → S3 (SPA)
+        DefaultCacheBehavior:
+          TargetOriginId: S3Origin
+          ViewerProtocolPolicy: redirect-to-https
+          CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6  # CachingOptimized
+          Compress: true
+          AllowedMethods:
+            - GET
+            - HEAD
+          CachedMethods:
+            - GET
+            - HEAD
+
+        # /api/* behavior → EC2 (no cache, all forwarded)
+        CacheBehaviors:
+          - PathPattern: "/api/*"
+            TargetOriginId: Ec2Origin
+            ViewerProtocolPolicy: redirect-to-https
+            CachePolicyId: 4135ea2d-6df8-44a3-9df3-4b5a84be39ad  # CachingDisabled
+            OriginRequestPolicyId: 216adef6-5c7f-47e4-b989-5492eafa07d3  # AllViewer
+            AllowedMethods:
+              - GET
+              - HEAD
+              - OPTIONS
+              - PUT
+              - POST
+              - PATCH
+              - DELETE
+            CachedMethods:
+              - GET
+              - HEAD
+
+          # /health behavior → EC2 (Requirement 13.2)
+          - PathPattern: "/health"
+            TargetOriginId: Ec2Origin
+            ViewerProtocolPolicy: redirect-to-https
+            CachePolicyId: 4135ea2d-6df8-44a3-9df3-4b5a84be39ad  # CachingDisabled
+            OriginRequestPolicyId: 216adef6-5c7f-47e4-b989-5492eafa07d3  # AllViewer
+            AllowedMethods:
+              - GET
+              - HEAD
+            CachedMethods:
+              - GET
+              - HEAD
+
+        # SPA fallback: 403/404 → /index.html with 200
+        CustomErrorResponses:
+          - ErrorCode: 403
+            ResponseCode: 200
+            ResponsePagePath: /index.html
+            ErrorCachingMinTTL: 10
+          - ErrorCode: 404
+            ResponseCode: 200
+            ResponsePagePath: /index.html
+            ErrorCachingMinTTL: 10
+
+        # No custom domain / ACM certificate
+        # Aliases: omitted
+        # ViewerCertificate: use CloudFront default certificate
+        ViewerCertificate:
+          CloudFrontDefaultCertificate: true
+
+      Tags:
+        - Key: Name
+          Value: !Sub "paga-${Environment}-distribution"
+
+Outputs:
+  CloudFrontDomain:
+    Description: CloudFront distribution domain name
+    Value: !GetAtt Distribution.DomainName
+    Export:
+      Name: !Sub "paga-${Environment}-cloudfront-domain"
+
+  CloudFrontDistributionId:
+    Description: CloudFront distribution ID
+    Value: !Ref Distribution
+    Export:
+      Name: !Sub "paga-${Environment}-cloudfront-distribution-id"

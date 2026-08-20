@@ -1,0 +1,143 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >-
+  PAGA MVP - EC2 Stack.
+  Creates an EC2 instance with user data bootstrap (installs .NET 10 runtime,
+  PostgreSQL 16, Nginx, CodeDeploy agent) and configures the paga-api systemd unit.
+
+Parameters:
+  Environment:
+    Type: String
+    Default: prod
+    Description: Environment name used in resource naming and exports.
+
+  InstanceType:
+    Type: String
+    Default: t3.micro
+    Description: EC2 instance type.
+
+  KeyPairName:
+    Type: String
+    Description: Name of the EC2 key pair for SSH access. Required.
+
+Resources:
+  EC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: !Ref InstanceType
+      ImageId: resolve:ssm:/aws/service/ami-amazon-linux-latest/al2023-ami-kernel-default-x86_64
+      KeyName: !Ref KeyPairName
+      IamInstanceProfile: !Sub "paga-${Environment}-instance-profile"
+      NetworkInterfaces:
+        - DeviceIndex: "0"
+          AssociatePublicIpAddress: true
+          SubnetId:
+            Fn::ImportValue: !Sub "paga-${Environment}-subnet-id"
+          GroupSet:
+            - Fn::ImportValue: !Sub "paga-${Environment}-sg-id"
+      Tags:
+        - Key: Name
+          Value: !Sub "paga-${Environment}-ec2"
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash -xe
+
+          # ============================================================
+          # 1. Install .NET 10 runtime
+          # ============================================================
+          dnf install -y aspnetcore-runtime-10.0
+
+          # ============================================================
+          # 2. Install PostgreSQL 16 server + psql client
+          # ============================================================
+          dnf install -y postgresql16-server postgresql16
+
+          # Initialize PostgreSQL data directory
+          postgresql-setup --initdb
+
+          # Configure PostgreSQL to listen only on localhost
+          PG_HBA=$(find /var/lib/pgsql -name pg_hba.conf 2>/dev/null | head -1)
+          PG_CONF=$(find /var/lib/pgsql -name postgresql.conf 2>/dev/null | head -1)
+
+          sed -i "s/^#listen_addresses.*/listen_addresses = 'localhost'/" "$PG_CONF"
+          sed -i "s/^listen_addresses.*/listen_addresses = 'localhost'/" "$PG_CONF"
+
+          # Start PostgreSQL
+          systemctl enable postgresql
+          systemctl start postgresql
+
+          # Read DB password from Parameter Store
+          DB_PASSWORD=$(aws ssm get-parameter \
+            --name /paga/db-password \
+            --with-decryption \
+            --query Parameter.Value \
+            --output text \
+            --region ${AWS::Region})
+
+          # Create database and user
+          sudo -u postgres psql -c "CREATE USER paga WITH PASSWORD '$DB_PASSWORD';" || true
+          sudo -u postgres psql -c "CREATE DATABASE paga OWNER paga;" || true
+          sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE paga TO paga;" || true
+
+          # Allow password auth for local connections
+          sed -i 's/^\(local.*all.*all.*\)peer/\1md5/' "$PG_HBA"
+          sed -i 's/^\(host.*all.*all.*127.0.0.1\/32.*\)ident/\1md5/' "$PG_HBA"
+          sed -i 's/^\(host.*all.*all.*::1\/128.*\)ident/\1md5/' "$PG_HBA"
+          systemctl restart postgresql
+
+          # ============================================================
+          # 3. Install Nginx
+          # ============================================================
+          dnf install -y nginx
+          systemctl enable nginx
+          systemctl start nginx
+
+          # ============================================================
+          # 4. Install CodeDeploy agent
+          # ============================================================
+          dnf install -y ruby wget
+          cd /tmp
+          wget https://aws-codedeploy-${AWS::Region}.s3.${AWS::Region}.amazonaws.com/latest/install
+          chmod +x ./install
+          ./install auto
+          systemctl enable codedeploy-agent
+          systemctl start codedeploy-agent
+
+          # ============================================================
+          # 5. Create application directory
+          # ============================================================
+          mkdir -p /opt/paga/api
+
+          # ============================================================
+          # 6. Create systemd unit for Kestrel (paga-api.service)
+          # ============================================================
+          cat > /etc/systemd/system/paga-api.service << 'UNIT'
+          [Unit]
+          Description=PAGA API
+          After=network.target postgresql.service
+
+          [Service]
+          WorkingDirectory=/opt/paga/api
+          ExecStart=/usr/bin/dotnet /opt/paga/api/Paga.Api.dll
+          Restart=always
+          RestartSec=5
+          Environment=ASPNETCORE_ENVIRONMENT=Production
+          Environment=ASPNETCORE_URLS=http://localhost:5000
+
+          [Install]
+          WantedBy=multi-user.target
+          UNIT
+
+          systemctl daemon-reload
+          systemctl enable paga-api.service
+
+          # ============================================================
+          # 7. Signal completion
+          # ============================================================
+          echo "User data script completed successfully."
+
+Outputs:
+  EC2PublicIp:
+    Description: Public IP address of the EC2 instance
+    Value: !GetAtt EC2Instance.PublicIp
+    Export:
+      Name: !Sub "paga-${Environment}-ec2-public-ip"

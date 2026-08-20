@@ -1,0 +1,542 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Create domain exception hierarchy in Paga.Application": [
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107256698
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107288799
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107391828
+      }
+    ],
+    "1.2 Create ICurrentUserService interface in Paga.Application": [
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107256754
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107289619
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107392675
+      }
+    ],
+    "1.3 Create ITokenService interface in Paga.Application": [
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107256817
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107290473
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107393508
+      }
+    ],
+    "1.4 Create IAuthService interface and TokenResponse record in Paga.Application": [
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107256867
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107291331
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107394390
+      }
+    ],
+    "1.5 Create IUserService interface in Paga.Application": [
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107256926
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107292359
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107395221
+      }
+    ],
+    "2.1 Create auth DTOs": [
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107257006
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107400476
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107529578
+      }
+    ],
+    "2.2 Create user DTOs": [
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107257055
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107401123
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107530214
+      }
+    ],
+    "2.3 Create FluentValidation validators": [
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107257106
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107401920
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107531015
+      }
+    ],
+    "2.4 Create pagination helper (PagedResult + ToPagedResultAsync)": [
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107257156
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107402765
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107532026
+      }
+    ],
+    "3.1 Add mutation methods to User and RefreshToken entities": [
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107257227
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107403704
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107533109
+      }
+    ],
+    "3.2 Implement TokenService in Paga.Infrastructure": [
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107257268
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107545680
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107674062
+      }
+    ],
+    "3.3 Implement AuthService in Paga.Infrastructure": [
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107257325
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107546465
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107674803
+      }
+    ],
+    "3.4 Implement UserService in Paga.Infrastructure": [
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107257379
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107547291
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107675855
+      }
+    ],
+    "4. Checkpoint - Core services": [
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107257417
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787108254574
+      }
+    ],
+    "5.1 Implement CurrentUserService in Paga.Api": [
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107257460
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107548194
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107676703
+      }
+    ],
+    "5.2 Implement GlobalExceptionHandler in Paga.Api": [
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107257512
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107681769
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787108131417
+      }
+    ],
+    "5.3 Configure JWT middleware and DI in Program.cs": [
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107257556
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107682549
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787108132594
+      }
+    ],
+    "5.4 Implement AuthController": [
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107257611
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787108137508
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787108247875
+      }
+    ],
+    "5.5 Implement UsersController": [
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107257686
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787108138437
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787108248632
+      }
+    ],
+    "6. Checkpoint - Full API build": [
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107257740
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787108255446
+      }
+    ],
+    "7.1 Write unit tests for TokenService": [
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107257791
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787108260380
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787108470682
+      }
+    ],
+    "7.2 Write unit tests for AuthService": [
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107257831
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787108261250
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787108471500
+      }
+    ],
+    "7.3 Write unit tests for UserService": [
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107257876
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787108262188
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787108472342
+      }
+    ],
+    "7.4 Write unit tests for validators": [
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107257929
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787108262834
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787108473181
+      }
+    ],
+    "7.5 Write unit tests for GlobalExceptionHandler": [
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107257976
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787108263846
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787108474066
+      }
+    ],
+    "8. Checkpoint - Unit tests green": [
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107258019
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787108480014
+      }
+    ],
+    "9.1 Create test infrastructure (PagaApiFactory + helpers)": [
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107258090
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787108485737
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787108636099
+      }
+    ],
+    "9.2 Write integration tests for auth endpoints": [
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107258129
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787108641260
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787108830305
+      }
+    ],
+    "9.3 Write integration tests for users endpoints": [
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107258189
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787108642018
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787108831011
+      }
+    ],
+    "11. Final checkpoint": [
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107258247
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787108854914
+      },
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787108904898
+      }
+    ],
+    "1. Domain exceptions and application abstractions": [
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107395261
+      }
+    ],
+    "2. DTOs, validators, and pagination helper": [
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107532065
+      }
+    ],
+    "3. Domain entity updates and infrastructure services": [
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787107675986
+      }
+    ],
+    "5. API layer (controllers, exception handler, middleware)": [
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787108248694
+      }
+    ],
+    "7. Unit tests": [
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787108474187
+      }
+    ],
+    "9. Integration tests": [
+      {
+        "executionId": "79244d72-2a59-41dc-8746-180886acf522",
+        "chatSessionId": "sess_8872bd95-0e9c-4447-b16b-6bd6855085b5",
+        "timestamp": 1787108831058
+      }
+    ]
+  }
+}

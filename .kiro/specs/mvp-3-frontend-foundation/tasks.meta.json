@@ -1,0 +1,479 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Create Angular 19 project with Angular CLI": [
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787111032171
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787111041589
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787112543935
+      }
+    ],
+    "1.2 Install and configure Angular Material": [
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787111032223
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787112549004
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787112966730
+      }
+    ],
+    "1.3 Create folder structure and environment files": [
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787111032257
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787112549727
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787112967551
+      }
+    ],
+    "2.1 Create `_tokens.scss` with CSS custom properties": [
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787111032293
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787112972109
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787113585469
+      }
+    ],
+    "2.2 Create `_themes.scss` with Angular Material custom theme": [
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787111032341
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787112972930
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787113586108
+      }
+    ],
+    "2.3 Create `styles.scss` global styles": [
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787111032388
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787112973781
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787113586985
+      }
+    ],
+    "3.1 Create `ThemeService` in `core/theme/`": [
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787111032428
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787113596347
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787113762767
+      }
+    ],
+    "4. Checkpoint - Verify tokens and theme service": [
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787111032459
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787113783104
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787113890691
+      }
+    ],
+    "5.1 Create `ShellComponent` in `layout/shell/`": [
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787111032496
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787114016501
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787114250138
+      }
+    ],
+    "5.2 Create `SidebarComponent` in `layout/sidebar/`": [
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787111032524
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787114017314
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787114250898
+      }
+    ],
+    "5.3 Create `HeaderComponent` in `layout/header/`": [
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787111032555
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787114018260
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787114251755
+      }
+    ],
+    "5.4 Create `ThemeToggleComponent` in `shared/theme-toggle/`": [
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787111032595
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787113906996
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787114009594
+      }
+    ],
+    "6.1 Create `PlaceholderComponent` in `shared/placeholder/`": [
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787111032625
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787113907818
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787114010412
+      }
+    ],
+    "6.2 Create `DashboardComponent` placeholder in `features/dashboard/`": [
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787111032657
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787113908719
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787114011258
+      }
+    ],
+    "6.3 Configure `app.routes.ts` with lazy-loaded routes": [
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787111032687
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787114019364
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787114252634
+      }
+    ],
+    "6.4 Create feature route files pointing to PlaceholderComponent": [
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787111032745
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787114020629
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787114253629
+      }
+    ],
+    "7.1 Update `AppComponent` to render `ShellComponent`": [
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787111032772
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787114259053
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787114366047
+      }
+    ],
+    "8. Checkpoint - Full build and navigation verification": [
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787111032818
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787114371339
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787114461624
+      }
+    ],
+    "9.1 Write unit tests for `ThemeService`": [
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787111032853
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787114467902
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787114753296
+      }
+    ],
+    "9.2 Write unit tests for `ShellComponent`": [
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787111032887
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787114468691
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787114754090
+      }
+    ],
+    "9.3 Write unit tests for `SidebarComponent`": [
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787111032922
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787114469515
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787114754867
+      }
+    ],
+    "9.4 Write unit tests for `HeaderComponent`": [
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787111032954
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787114470191
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787114755646
+      }
+    ],
+    "9.5 Write unit tests for `ThemeToggleComponent`": [
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787111032993
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787114471167
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787114756451
+      }
+    ],
+    "9.6 Write unit tests for `PlaceholderComponent`": [
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787111033023
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787114471916
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787114757352
+      }
+    ],
+    "10. Final checkpoint - All tests pass": [
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787111033052
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787114762951
+      },
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787115023797
+      }
+    ],
+    "1. Scaffold Angular 19 project and configure dependencies": [
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787112967605
+      }
+    ],
+    "2. Implement design tokens and Angular Material theme": [
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787113587040
+      }
+    ],
+    "3. Implement ThemeService": [
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787113762891
+      }
+    ],
+    "5. Implement Shell layout components": [
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787114251894
+      }
+    ],
+    "6. Implement routing and placeholder components": [
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787114253725
+      }
+    ],
+    "7. Wire AppComponent and integrate Shell": [
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787114366141
+      }
+    ],
+    "9. Write unit tests for all components and services": [
+      {
+        "executionId": "80a45d86-e1fc-47d6-8592-2905325dbeb6",
+        "chatSessionId": "sess_84ceb691-988a-46aa-86b5-85c20a3c42c0",
+        "timestamp": 1787114757699
+      }
+    ]
+  }
+}

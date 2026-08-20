@@ -1,0 +1,63 @@
+<div class="login-page">
+  <div class="login-card">
+    <div class="login-header">
+      <div class="logo-icon" aria-hidden="true">
+        <span>P</span>
+      </div>
+      <h1 class="app-title">PAGA</h1>
+      <p class="app-subtitle">Acompanhamento de Gastos Automatizado</p>
+    </div>
+
+    @if (loginError()) {
+      <div class="error-banner" role="alert">
+        {{ loginError() }}
+      </div>
+    }
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="login-form">
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          type="email"
+          formControlName="email"
+          autocomplete="email"
+        />
+        @if (form.controls.email.touched && form.controls.email.hasError('required')) {
+          <mat-error>Email é obrigatório</mat-error>
+        } @else if (form.controls.email.touched && form.controls.email.hasError('email')) {
+          <mat-error>Informe um email válido</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Senha</mat-label>
+        <input
+          matInput
+          type="password"
+          formControlName="password"
+          autocomplete="current-password"
+        />
+        @if (form.controls.password.touched && form.controls.password.hasError('required')) {
+          <mat-error>Senha é obrigatória</mat-error>
+        }
+      </mat-form-field>
+
+      <button
+        mat-flat-button
+        color="primary"
+        type="submit"
+        class="submit-button"
+        [disabled]="form.invalid || isLoading()"
+        [class.loading]="isLoading()"
+      >
+        @if (isLoading()) {
+          <mat-spinner diameter="16" class="button-spinner"></mat-spinner>
+          <span>Entrando...</span>
+        } @else {
+          <span>Entrar</span>
+        }
+      </button>
+    </form>
+  </div>
+</div>

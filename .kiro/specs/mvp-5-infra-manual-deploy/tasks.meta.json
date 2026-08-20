@@ -1,0 +1,326 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Create `infra/cloudformation/network.yaml` with VPC, public subnet, internet gateway, route table, and security group": [
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787147782433
+      },
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787147792004
+      },
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787148178284
+      }
+    ],
+    "2.1 Create `infra/cloudformation/iam.yaml` with four IAM roles and an instance profile": [
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787147782472
+      },
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787147792980
+      },
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787148179250
+      }
+    ],
+    "3.1 Create `infra/cloudformation/ec2.yaml` with EC2 instance, user data bootstrap, and systemd unit": [
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787147782503
+      },
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787148183930
+      },
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787150767755
+      }
+    ],
+    "4.1 Create `infra/cloudformation/frontend.yaml` with S3 bucket, OAC, CloudFront distribution": [
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787147782546
+      },
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787150772966
+      },
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787151496371
+      }
+    ],
+    "5. Checkpoint - Validate all CloudFormation templates": [
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787147782580
+      },
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787151835394
+      },
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787152202856
+      }
+    ],
+    "6.1 Create `infra/nginx/paga.conf` with reverse proxy configuration": [
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787147782631
+      },
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787148184994
+      },
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787150766831
+      }
+    ],
+    "6.2 Create `infra/appspec.yml` with CodeDeploy application specification": [
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787147782669
+      },
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787150773934
+      },
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787151497154
+      }
+    ],
+    "6.3 Create `infra/scripts/stop.sh`": [
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787147782701
+      },
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787150774792
+      },
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787151498052
+      }
+    ],
+    "6.4 Create `infra/scripts/install.sh`": [
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787147782735
+      },
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787150775584
+      },
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787151498839
+      }
+    ],
+    "6.5 Create `infra/scripts/start.sh`": [
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787147782767
+      },
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787150776562
+      },
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787151499789
+      }
+    ],
+    "6.6 Create `infra/scripts/validate.sh`": [
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787147782803
+      },
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787151504474
+      },
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787151559454
+      }
+    ],
+    "7.1 Create `backend/src/Paga.Api/appsettings.Production.json`": [
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787147782844
+      },
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787151564970
+      },
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787151652301
+      }
+    ],
+    "8. Checkpoint - Review scripts and configuration": [
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787147782878
+      },
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787152207026
+      },
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787165072428
+      }
+    ],
+    "9.1 Create `docs/runbook.md` with manual deploy instructions": [
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787147782909
+      },
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787151658098
+      },
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787151825496
+      }
+    ],
+    "9.2 Create `docs/adr/002-single-instance-architecture.md`": [
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787147782946
+      },
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787151565757
+      },
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787151653198
+      }
+    ],
+    "10. Final checkpoint - Full review": [
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787147782979
+      },
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787165077006
+      },
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787165162384
+      }
+    ],
+    "1. Create Network Stack CloudFormation template": [
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787148178365
+      }
+    ],
+    "2. Create IAM Stack CloudFormation template": [
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787148179299
+      }
+    ],
+    "3. Create EC2 Stack CloudFormation template": [
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787150767787
+      }
+    ],
+    "4. Create Frontend Stack CloudFormation template": [
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787151496412
+      }
+    ],
+    "6. Create Nginx and CodeDeploy artifacts": [
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787151559522
+      }
+    ],
+    "7. Create production CORS configuration": [
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787151652353
+      }
+    ],
+    "9. Create operational documentation": [
+      {
+        "executionId": "7d646d69-4da2-4f9f-8326-12fa12a3c7d6",
+        "chatSessionId": "sess_a7ca3c3b-d71d-456c-b5a2-63c2ca89abf4",
+        "timestamp": 1787151825539
+      }
+    ]
+  }
+}

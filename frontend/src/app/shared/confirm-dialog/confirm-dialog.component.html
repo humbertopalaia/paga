@@ -1,0 +1,28 @@
+@if (data.type) {
+  <div class="icon-container">
+    <div class="icon-circle" [class]="'icon-circle--' + data.type">
+      <mat-icon>{{ iconName }}</mat-icon>
+    </div>
+  </div>
+}
+
+<h2 mat-dialog-title>{{ data.title }}</h2>
+
+<mat-dialog-content>
+  <p class="message">{{ data.message }}</p>
+</mat-dialog-content>
+
+<mat-dialog-actions align="center">
+  <button mat-button (click)="cancel()" class="cancel-button">
+    {{ cancelLabel }}
+  </button>
+  <button
+    mat-flat-button
+    color="primary"
+    (click)="confirm()"
+    class="confirm-button"
+    cdkFocusInitial
+  >
+    {{ confirmLabel }}
+  </button>
+</mat-dialog-actions>

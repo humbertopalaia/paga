@@ -1,0 +1,301 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1. Criar o esqueleto da solução e as referências entre projetos": [
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787101559581
+      },
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787101569049
+      },
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787103009424
+      }
+    ],
+    "2. Criar o `.gitignore` e proteger os arquivos sensíveis": [
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787101559970
+      },
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787103024574
+      },
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787103202518
+      }
+    ],
+    "3. Adicionar os pacotes NuGet de cada projeto": [
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787101560009
+      },
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787103025413
+      },
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787103203314
+      }
+    ],
+    "4. Implementar o modelo de domínio": [
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787101560058
+      },
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787103212711
+      },
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787103316911
+      }
+    ],
+    "5. Implementar o `PagaDbContext` e o converter de recorrência": [
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787101560087
+      },
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787103327760
+      },
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787103476677
+      }
+    ],
+    "6. Implementar as cinco configurações de entidade": [
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787101560124
+      },
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787103487713
+      },
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787103598898
+      }
+    ],
+    "7. Implementar as abstrações da Application e o hasher de senha": [
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787101560152
+      },
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787103213826
+      },
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787103318015
+      }
+    ],
+    "8. Implementar o seed condicional do administrador": [
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787101560183
+      },
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787103328699
+      },
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787103478533
+      }
+    ],
+    "9. Criar o ponto único de registro de DI da Infrastructure": [
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787101560235
+      },
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787103489100
+      },
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787103600092
+      }
+    ],
+    "10. Configurar `appsettings` e a validação fail-fast": [
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787101560276
+      },
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787103609317
+      },
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787103762936
+      }
+    ],
+    "11. Configurar Serilog": [
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787101560311
+      },
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787103214715
+      },
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787103318813
+      }
+    ],
+    "12. Montar o pipeline da API com health check e Swagger": [
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787101560345
+      },
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787103771790
+      },
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787103882658
+      }
+    ],
+    "13. Gerar e aplicar a migration inicial": [
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787101560387
+      },
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787103892724
+      },
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787104061714
+      }
+    ],
+    "14. Escrever os testes unitários": [
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787101560429
+      },
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787103329649
+      },
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787103477497
+      }
+    ],
+    "15. Montar a infraestrutura dos testes de integração": [
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787101560459
+      },
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787104071088
+      },
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787104204538
+      }
+    ],
+    "16. Escrever os testes de integração": [
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787101560492
+      },
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787104213081
+      },
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787104435575
+      }
+    ],
+    "17. Verificação final da spec": [
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787101560521
+      },
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787104445860
+      },
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787104597432
+      }
+    ],
+    "18. (Opcional) Publicar o repositório no GitHub": [
+      {
+        "executionId": "0e8b5d46-a321-4c24-8498-32e8b1490872",
+        "chatSessionId": "sess_34d13e7b-da85-4372-9b1f-3a03ef26dcb3",
+        "timestamp": 1787101560550
+      }
+    ]
+  }
+}

@@ -1,0 +1,91 @@
+<div class="form-container">
+  <div class="form-card">
+    <h1 class="form-title">
+      @if (mode() === 'create') {
+        Novo Usuário
+      } @else {
+        Editar Usuário
+      }
+    </h1>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nome</mat-label>
+        <input matInput formControlName="name" autocomplete="name" />
+        @if (form.get('name')?.hasError('required') && form.get('name')?.touched) {
+          <mat-error>Nome é obrigatório</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" type="email" autocomplete="email" />
+        @if (form.get('email')?.hasError('required') && form.get('email')?.touched) {
+          <mat-error>Email é obrigatório</mat-error>
+        }
+        @if (form.get('email')?.hasError('email') && form.get('email')?.touched) {
+          <mat-error>Email inválido</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>
+          @if (mode() === 'create') {
+            Senha
+          } @else {
+            Nova Senha (opcional)
+          }
+        </mat-label>
+        <input
+          matInput
+          formControlName="password"
+          type="password"
+          autocomplete="new-password"
+          [placeholder]="mode() === 'edit' ? 'Deixe vazio para manter' : ''"
+        />
+        @if (mode() === 'create') {
+          @if (form.get('password')?.hasError('required') && form.get('password')?.touched) {
+            <mat-error>Senha é obrigatória</mat-error>
+          }
+          @if (form.get('password')?.hasError('minlength') && form.get('password')?.touched) {
+            <mat-error>Senha deve ter no mínimo 6 caracteres</mat-error>
+          }
+        }
+      </mat-form-field>
+
+      @if (mode() === 'create') {
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Confirmação de Senha</mat-label>
+          <input
+            matInput
+            formControlName="passwordConfirmation"
+            type="password"
+            autocomplete="new-password"
+          />
+          @if (form.get('passwordConfirmation')?.hasError('required') && form.get('passwordConfirmation')?.touched) {
+            <mat-error>Confirmação de senha é obrigatória</mat-error>
+          }
+          @if (form.hasError('passwordMismatch') && form.get('passwordConfirmation')?.touched) {
+            <mat-error>As senhas não coincidem</mat-error>
+          }
+        </mat-form-field>
+      }
+
+      <div class="form-actions">
+        <button
+          mat-flat-button
+          color="primary"
+          type="submit"
+          [disabled]="form.invalid || isLoading()"
+        >
+          @if (isLoading()) {
+            Salvando...
+          } @else {
+            Salvar
+          }
+        </button>
+        <a mat-button routerLink="/users" class="cancel-button">Cancelar</a>
+      </div>
+    </form>
+  </div>
+</div>

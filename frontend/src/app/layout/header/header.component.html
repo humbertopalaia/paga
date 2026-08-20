@@ -1,0 +1,20 @@
+<mat-toolbar class="header-toolbar">
+  @if (isMobile()) {
+    <button mat-icon-button (click)="menuToggle.emit()" aria-label="Abrir menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+  }
+
+  <span class="page-title">{{ pageTitle }}</span>
+
+  <span class="spacer"></span>
+
+  <app-theme-toggle />
+
+  <span class="user-name">{{ userName }}</span>
+
+  <button mat-button class="logout-btn" (click)="onLogout()" aria-label="Sair">
+    <mat-icon>logout</mat-icon>
+    Sair
+  </button>
+</mat-toolbar>
