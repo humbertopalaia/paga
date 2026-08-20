@@ -534,3 +534,203 @@ dotnet ef migrations script `
 
 scp -i <key.pem> ./publish/migrations.sql ec2-user@<ec2-ip>:/opt/paga/api/migrations.sql
 ```
+
+
+---
+
+## 7. CI/CD Pipeline Deployment
+
+This section documents how to deploy the automated CI/CD pipeline that replaces the manual deploy process in sections 3 and 4. Once the pipeline is active, every push to `main` will automatically build, test, and deploy both frontend and backend.
+
+### 7.1 Prerequisites
+
+Before deploying the pipeline stack, ensure:
+
+1. **Stacks 2.1 through 2.4 are already deployed** (Network, IAM, EC2, Frontend). The pipeline depends on cross-stack exports from IAM and uses existing infrastructure.
+
+2. **CodeDeploy agent is installed on the EC2 instance** — the EC2 user data script should have installed it. Verify via SSH:
+
+   ```bash
+   sudo service codedeploy-agent status
+   ```
+
+3. **Gather the following values** (needed as parameters):
+
+   | Value | How to obtain |
+   |-------|---------------|
+   | Frontend S3 bucket name | From Frontend stack output or the `BucketName` parameter used in step 2.4 |
+   | CloudFront distribution ID | `aws cloudformation describe-stacks --stack-name paga-prod-frontend --query "Stacks[0].Outputs[?OutputKey=='CloudFrontDistributionId'].OutputValue" --output text --profile palaia` |
+   | EC2 instance Name tag | `paga-prod-ec2` (matches the EC2 stack) |
+   | AWS Account ID | `aws sts get-caller-identity --query Account --output text --profile palaia` |
+
+### 7.2 Create the CodeStar Connection (one-time)
+
+The CodeStar Connection links AWS CodePipeline to the GitHub repository. This is a **one-time manual step** that requires OAuth consent in the AWS Console.
+
+1. Open the AWS Console → **Developer Tools → Settings → Connections**
+2. Click **Create connection**
+3. Select **GitHub** as the provider
+4. Name it `paga-github-connection` (or any descriptive name)
+5. Click **Connect to GitHub** — this opens a GitHub OAuth window
+6. Authorize the AWS Connector app for the `humbertopalaia` account (or the org that owns the repo)
+7. Select the repository `paga` (or grant access to all repos)
+8. Click **Connect**
+
+Once created, copy the **Connection ARN** (format: `arn:aws:codeconnections:<region>:<account-id>:connection/<uuid>`). You'll need it in step 7.4.
+
+> **Note:** The connection starts in "Pending" status until you complete the GitHub handshake. It must show "Available" before the pipeline can use it.
+
+### 7.3 Update the IAM Stack
+
+The IAM stack has been updated in code to export `CodePipelineRoleArn` and `CodeBuildRoleArn`, and includes the `CodeStarConnectionAccess` permission. You must update the deployed stack to reflect these changes.
+
+The IAM stack now requires an `ArtifactBucketArn` parameter. Choose a globally unique bucket name for pipeline artifacts (e.g., `paga-prod-artifacts-<account-id>`) — the bucket itself is created by the pipeline stack, but the IAM stack needs the ARN to scope permissions.
+
+```powershell
+aws cloudformation update-stack `
+  --stack-name paga-prod-iam `
+  --template-body file://infra/cloudformation/iam.yaml `
+  --parameters `
+    ParameterKey=Environment,ParameterValue=prod `
+    ParameterKey=ArtifactBucketArn,ParameterValue=arn:aws:s3:::paga-prod-artifacts `
+    ParameterKey=FrontendBucketArn,ParameterValue=arn:aws:s3:::<your-spa-bucket-name> `
+    ParameterKey=CloudFrontDistributionArn,ParameterValue=arn:aws:cloudfront::<account-id>:distribution/<dist-id> `
+  --capabilities CAPABILITY_NAMED_IAM `
+  --profile palaia
+```
+
+Wait for completion:
+
+```powershell
+aws cloudformation wait stack-update-complete --stack-name paga-prod-iam --profile palaia
+```
+
+> **Important:** The `ArtifactBucketArn` value (`arn:aws:s3:::paga-prod-artifacts`) must match the `ArtifactBucketName` parameter you'll pass to the pipeline stack in the next step. Only the bucket name portion needs to match.
+
+### 7.4 Deploy the Pipeline Stack
+
+Create the pipeline stack with all required parameters:
+
+```powershell
+aws cloudformation create-stack `
+  --stack-name paga-prod-pipeline `
+  --template-body file://infra/cloudformation/pipeline.yaml `
+  --parameters `
+    ParameterKey=Environment,ParameterValue=prod `
+    ParameterKey=GitHubOwner,ParameterValue=humbertopalaia `
+    ParameterKey=GitHubRepo,ParameterValue=paga `
+    ParameterKey=GitHubBranch,ParameterValue=main `
+    ParameterKey=CodeStarConnectionArn,ParameterValue=<connection-arn-from-step-7.2> `
+    ParameterKey=ArtifactBucketName,ParameterValue=paga-prod-artifacts `
+    ParameterKey=FrontendBucketName,ParameterValue=<your-spa-bucket-name> `
+    ParameterKey=CloudFrontDistributionId,ParameterValue=<cloudfront-dist-id> `
+    ParameterKey=Ec2TagValue,ParameterValue=paga-prod-ec2 `
+  --profile palaia
+```
+
+Wait for completion:
+
+```powershell
+aws cloudformation wait stack-create-complete --stack-name paga-prod-pipeline --profile palaia
+```
+
+### 7.5 Trigger the First Pipeline Execution
+
+The pipeline triggers automatically on pushes to `main`. To run it for the first time:
+
+- **Option A:** Push any commit to `main` (e.g., merge a branch).
+- **Option B:** Manually start the pipeline in the AWS Console → CodePipeline → `paga-prod-pipeline` → **Release change**.
+
+### 7.6 Verify the Pipeline
+
+Monitor the pipeline execution:
+
+```powershell
+aws codepipeline get-pipeline-state `
+  --name paga-prod-pipeline `
+  --profile palaia
+```
+
+Check individual stage results:
+
+1. **Source** — should show "Succeeded" after fetching from GitHub.
+2. **Build** — both `FrontendBuild` and `BackendBuild` run in parallel. Check logs:
+
+   ```powershell
+   aws codebuild list-builds-for-project `
+     --project-name paga-prod-frontend-build `
+     --profile palaia
+
+   aws codebuild list-builds-for-project `
+     --project-name paga-prod-backend-build `
+     --profile palaia
+   ```
+
+3. **Deploy** — CodeDeploy installs the backend on EC2. Check deployment status:
+
+   ```powershell
+   aws deploy list-deployments `
+     --application-name paga-prod-app `
+     --deployment-group-name paga-prod-deployment-group `
+     --profile palaia
+   ```
+
+After the pipeline completes, run the validation checks from section 5 (health check, SPA load, login).
+
+### 7.7 Pipeline Troubleshooting
+
+#### Source stage fails
+
+**Common causes:**
+- CodeStar Connection is in "Pending" state (complete the GitHub OAuth flow in Console)
+- Connection ARN is incorrect
+- Repository name or owner doesn't match
+
+**Fix:** Verify the connection status in AWS Console → Developer Tools → Connections.
+
+#### Frontend build fails
+
+**Common causes:**
+- `npm ci` fails due to lockfile mismatch (push an updated `package-lock.json`)
+- `ng build` fails due to compilation errors (fix and push)
+- S3 sync fails due to IAM permissions (check CodeBuild role has `FrontendBucketSync` permissions)
+
+**Diagnosis:**
+
+```powershell
+aws codebuild batch-get-builds `
+  --ids <build-id> `
+  --query "builds[0].logs.deepLink" `
+  --output text `
+  --profile palaia
+```
+
+Open the deep link to view full build logs in CloudWatch.
+
+#### Backend build fails
+
+**Common causes:**
+- `dotnet test` fails (fix tests and push)
+- `dotnet ef` tool not installed (check the install phase in `infra/buildspec-backend.yml`)
+- Migration script generation fails (EF context issue)
+
+#### Deploy fails
+
+**Common causes:**
+- CodeDeploy agent not running on EC2 (`sudo service codedeploy-agent restart`)
+- Migration script fails (check DB credentials in SSM)
+- Service fails health check within 30s (check Kestrel logs on EC2)
+
+**Diagnosis (on EC2):**
+
+```bash
+# Check CodeDeploy agent logs
+sudo tail -50 /var/log/aws/codedeploy-agent/codedeploy-agent.log
+
+# Check deployment lifecycle event logs
+sudo tail -50 /opt/codedeploy-agent/deployment-root/deployment-logs/codedeploy-agent-deployments.log
+```
+
+---
+
+> **After the pipeline is active**, sections 3 and 4 (manual backend/frontend deploy) are no longer needed for regular deployments. They remain as a reference for emergency manual deploys or initial setup.

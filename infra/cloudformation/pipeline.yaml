@@ -1,0 +1,185 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: PAGA CI/CD pipeline — CodePipeline, CodeBuild, and CodeDeploy
+
+Parameters:
+  Environment:
+    Type: String
+    Default: prod
+    Description: Environment name used in resource naming and cross-stack references
+
+  GitHubOwner:
+    Type: String
+    Description: GitHub repository owner (e.g. humbertopalaia)
+
+  GitHubRepo:
+    Type: String
+    Description: GitHub repository name (e.g. paga)
+
+  GitHubBranch:
+    Type: String
+    Default: main
+    Description: Branch that triggers the pipeline
+
+  CodeStarConnectionArn:
+    Type: String
+    Description: ARN of the CodeStar Connection for GitHub access
+
+  ArtifactBucketName:
+    Type: String
+    Description: Name of the S3 bucket for pipeline artifacts
+
+  FrontendBucketName:
+    Type: String
+    Description: Name of the S3 bucket hosting the Angular SPA
+
+  CloudFrontDistributionId:
+    Type: String
+    Description: CloudFront distribution ID for cache invalidation
+
+  Ec2TagValue:
+    Type: String
+    Description: EC2 Name tag value for CodeDeploy targeting (e.g. paga-prod-ec2)
+
+Resources:
+  ArtifactBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref ArtifactBucketName
+      VersioningConfiguration:
+        Status: Enabled
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+
+  FrontendBuild:
+    Type: AWS::CodeBuild::Project
+    Properties:
+      Name: !Sub paga-${Environment}-frontend-build
+      ServiceRole:
+        Fn::ImportValue: !Sub paga-${Environment}-codebuild-role-arn
+      Source:
+        Type: CODEPIPELINE
+        BuildSpec: infra/buildspec-frontend.yml
+      Artifacts:
+        Type: CODEPIPELINE
+      Environment:
+        ComputeType: BUILD_GENERAL1_SMALL
+        Image: aws/codebuild/standard:7.0
+        Type: LINUX_CONTAINER
+        EnvironmentVariables:
+          - Name: FRONTEND_BUCKET_NAME
+            Value: !Ref FrontendBucketName
+            Type: PLAINTEXT
+          - Name: CLOUDFRONT_DISTRIBUTION_ID
+            Value: !Ref CloudFrontDistributionId
+            Type: PLAINTEXT
+
+  BackendBuild:
+    Type: AWS::CodeBuild::Project
+    Properties:
+      Name: !Sub paga-${Environment}-backend-build
+      ServiceRole:
+        Fn::ImportValue: !Sub paga-${Environment}-codebuild-role-arn
+      Source:
+        Type: CODEPIPELINE
+        BuildSpec: infra/buildspec-backend.yml
+      Artifacts:
+        Type: CODEPIPELINE
+      Environment:
+        ComputeType: BUILD_GENERAL1_SMALL
+        Image: aws/codebuild/standard:7.0
+        Type: LINUX_CONTAINER
+
+  CodeDeployApplication:
+    Type: AWS::CodeDeploy::Application
+    Properties:
+      ApplicationName: !Sub paga-${Environment}-app
+      ComputePlatform: Server
+
+  DeploymentGroup:
+    Type: AWS::CodeDeploy::DeploymentGroup
+    Properties:
+      DeploymentGroupName: !Sub paga-${Environment}-deployment-group
+      ApplicationName: !Ref CodeDeployApplication
+      ServiceRoleArn:
+        Fn::ImportValue: !Sub paga-${Environment}-codedeploy-role-arn
+      DeploymentConfigName: CodeDeployDefault.OneAtATime
+      Ec2TagFilters:
+        - Key: Name
+          Value: !Ref Ec2TagValue
+          Type: KEY_AND_VALUE
+
+  Pipeline:
+    Type: AWS::CodePipeline::Pipeline
+    Properties:
+      Name: !Sub paga-${Environment}-pipeline
+      RoleArn:
+        Fn::ImportValue: !Sub paga-${Environment}-codepipeline-role-arn
+      ArtifactStore:
+        Type: S3
+        Location: !Ref ArtifactBucket
+      Stages:
+        - Name: Source
+          Actions:
+            - Name: GitHubSource
+              ActionTypeId:
+                Category: Source
+                Owner: AWS
+                Provider: CodeStarSourceConnection
+                Version: "1"
+              Configuration:
+                ConnectionArn: !Ref CodeStarConnectionArn
+                FullRepositoryId: !Sub ${GitHubOwner}/${GitHubRepo}
+                BranchName: !Ref GitHubBranch
+                OutputArtifactFormat: CODE_ZIP
+              OutputArtifacts:
+                - Name: SourceOutput
+              RunOrder: 1
+
+        - Name: Build
+          Actions:
+            - Name: FrontendBuild
+              ActionTypeId:
+                Category: Build
+                Owner: AWS
+                Provider: CodeBuild
+                Version: "1"
+              Configuration:
+                ProjectName: !Ref FrontendBuild
+              InputArtifacts:
+                - Name: SourceOutput
+              RunOrder: 1
+            - Name: BackendBuild
+              ActionTypeId:
+                Category: Build
+                Owner: AWS
+                Provider: CodeBuild
+                Version: "1"
+              Configuration:
+                ProjectName: !Ref BackendBuild
+              InputArtifacts:
+                - Name: SourceOutput
+              OutputArtifacts:
+                - Name: BackendOutput
+              RunOrder: 1
+
+        - Name: Deploy
+          Actions:
+            - Name: BackendDeploy
+              ActionTypeId:
+                Category: Deploy
+                Owner: AWS
+                Provider: CodeDeploy
+                Version: "1"
+              Configuration:
+                ApplicationName: !Ref CodeDeployApplication
+                DeploymentGroupName: !Ref DeploymentGroup
+              InputArtifacts:
+                - Name: BackendOutput
+              RunOrder: 1
