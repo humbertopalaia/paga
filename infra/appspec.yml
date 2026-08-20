@@ -8,6 +8,9 @@ hooks:
     - location: infra/scripts/stop.sh
       timeout: 30
   BeforeInstall:
+    - location: infra/scripts/before-install.sh
+      timeout: 30
+  AfterInstall:
     - location: infra/scripts/install.sh
       timeout: 120
   ApplicationStart:
