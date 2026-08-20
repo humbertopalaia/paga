@@ -1,0 +1,42 @@
+<div class="form-container">
+  <div class="form-card">
+    <h1 class="form-title">
+      @if (mode() === 'create') {
+        Novo Tipo de Despesa
+      } @else {
+        Editar Tipo de Despesa
+      }
+    </h1>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nome</mat-label>
+        <input
+          matInput
+          formControlName="name"
+          placeholder="Ex: Alimentação, Transporte..."
+          autocomplete="off"
+        />
+        @if (form.get('name')?.hasError('required') && form.get('name')?.touched) {
+          <mat-error>Nome é obrigatório</mat-error>
+        }
+      </mat-form-field>
+
+      <div class="form-actions">
+        <button
+          mat-flat-button
+          color="primary"
+          type="submit"
+          [disabled]="form.invalid || isLoading()"
+        >
+          @if (isLoading()) {
+            Salvando...
+          } @else {
+            Salvar
+          }
+        </button>
+        <a mat-button routerLink="/expense-types" class="cancel-button">Cancelar</a>
+      </div>
+    </form>
+  </div>
+</div>

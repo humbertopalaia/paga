@@ -15,6 +15,15 @@ public class ExpenseType
         Name = name;
     }
 
+    /// <summary>
+    /// Updates the expense type name.
+    /// </summary>
+    /// <param name="name">The new name for this expense type.</param>
+    public void UpdateName(string name)
+    {
+        Name = name;
+    }
+
     // EF Core requires a parameterless constructor; kept private to enforce invariants.
     private ExpenseType()
     {
