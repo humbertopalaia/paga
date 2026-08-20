@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: PAGA CI/CD pipeline — CodePipeline, CodeBuild, and CodeDeploy
+Description: PAGA CI/CD pipeline - CodePipeline, CodeBuild, and CodeDeploy
 
 Parameters:
   Environment:
@@ -119,11 +119,20 @@ Resources:
     Type: AWS::CodePipeline::Pipeline
     Properties:
       Name: !Sub paga-${Environment}-pipeline
+      PipelineType: V2
       RoleArn:
         Fn::ImportValue: !Sub paga-${Environment}-codepipeline-role-arn
       ArtifactStore:
         Type: S3
         Location: !Ref ArtifactBucket
+      Triggers:
+        - ProviderType: CodeStarSourceConnection
+          GitConfiguration:
+            SourceActionName: GitHubSource
+            Push:
+              - Branches:
+                  Includes:
+                    - !Ref GitHubBranch
       Stages:
         - Name: Source
           Actions:
