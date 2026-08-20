@@ -1,0 +1,56 @@
+:host {
+  display: block;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  padding-top: var(--spacing-md);
+  padding-bottom: var(--spacing-sm);
+}
+
+.icon-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+
+  mat-icon {
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+  }
+
+  &--danger {
+    background-color: rgba(239, 68, 68, 0.12);
+    color: var(--danger);
+  }
+
+  &--warning {
+    background-color: rgba(245, 158, 11, 0.12);
+    color: var(--warning);
+  }
+
+  &--info {
+    background-color: rgba(59, 130, 246, 0.12);
+    color: var(--primary-500);
+  }
+}
+
+h2[mat-dialog-title] {
+  text-align: center;
+  color: var(--text-primary);
+}
+
+.message {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.cancel-button {
+  color: var(--text-secondary);
+}

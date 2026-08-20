@@ -1,0 +1,28 @@
+.header-toolbar {
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid var(--border);
+  color: var(--text-primary);
+  height: 64px;
+}
+
+.page-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.spacer {
+  flex: 1;
+}
+
+.user-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-right: var(--spacing-sm);
+}
+
+.logout-btn {
+  font-size: 12px;
+  color: var(--text-secondary);
+}

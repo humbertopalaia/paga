@@ -20,6 +20,14 @@ public class RefreshToken
         IsRevoked = false;
     }
 
+    /// <summary>
+    /// Marks the refresh token as revoked, preventing further use.
+    /// </summary>
+    public void Revoke()
+    {
+        IsRevoked = true;
+    }
+
     // EF Core requires a parameterless constructor; kept private to enforce invariants.
     private RefreshToken()
     {

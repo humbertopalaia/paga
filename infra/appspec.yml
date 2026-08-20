@@ -1,0 +1,18 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /opt/paga/api
+hooks:
+  ApplicationStop:
+    - location: infra/scripts/stop.sh
+      timeout: 30
+  BeforeInstall:
+    - location: infra/scripts/install.sh
+      timeout: 120
+  ApplicationStart:
+    - location: infra/scripts/start.sh
+      timeout: 30
+  ValidateService:
+    - location: infra/scripts/validate.sh
+      timeout: 60

@@ -1,0 +1,286 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Record operator variables": [
+      {
+        "executionId": "21c17d0e-81f4-4dae-bc7b-f3cc1015adb4",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787170983344
+      }
+    ],
+    "1.2 Verify AWS CLI and profile [LOCAL]": [
+      {
+        "executionId": "21c17d0e-81f4-4dae-bc7b-f3cc1015adb4",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787170983407
+      }
+    ],
+    "1.3 Verify .NET SDK [LOCAL]": [
+      {
+        "executionId": "21c17d0e-81f4-4dae-bc7b-f3cc1015adb4",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787170983457
+      }
+    ],
+    "1.4 Verify Node.js and Angular CLI [LOCAL]": [
+      {
+        "executionId": "21c17d0e-81f4-4dae-bc7b-f3cc1015adb4",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787170983490
+      }
+    ],
+    "1.5 Create Parameter Store secrets [LOCAL]": [
+      {
+        "executionId": "21c17d0e-81f4-4dae-bc7b-f3cc1015adb4",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787170983518
+      }
+    ],
+    "1. Phase 1: Prerequisites Verification [LOCAL]": [
+      {
+        "executionId": "21c17d0e-81f4-4dae-bc7b-f3cc1015adb4",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787170993169
+      }
+    ],
+    "2.1 Create Network Stack [LOCAL]": [
+      {
+        "executionId": "fda95266-91c5-4735-8a7e-e40c544112c9",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787171166259
+      },
+      {
+        "executionId": "fda95266-91c5-4735-8a7e-e40c544112c9",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787173676456
+      }
+    ],
+    "2.2 Create IAM Stack [LOCAL]": [
+      {
+        "executionId": "fda95266-91c5-4735-8a7e-e40c544112c9",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787173687775
+      },
+      {
+        "executionId": "fda95266-91c5-4735-8a7e-e40c544112c9",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787174842224
+      }
+    ],
+    "2.3 Create EC2 Stack [LOCAL]": [
+      {
+        "executionId": "fda95266-91c5-4735-8a7e-e40c544112c9",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787174846900
+      },
+      {
+        "executionId": "fda95266-91c5-4735-8a7e-e40c544112c9",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787177476827
+      }
+    ],
+    "2.4 Create Frontend Stack [LOCAL]": [
+      {
+        "executionId": "fda95266-91c5-4735-8a7e-e40c544112c9",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787177481923
+      },
+      {
+        "executionId": "fda95266-91c5-4735-8a7e-e40c544112c9",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787181432364
+      }
+    ],
+    "3. Checkpoint — Infrastructure complete": [
+      {
+        "executionId": "fda95266-91c5-4735-8a7e-e40c544112c9",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787181438723
+      }
+    ],
+    "4.1 Publish the .NET API [LOCAL]": [
+      {
+        "executionId": "e1e01586-5058-4e6f-83e7-f5ba0a7c30b1",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787181477946
+      },
+      {
+        "executionId": "e1e01586-5058-4e6f-83e7-f5ba0a7c30b1",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787181509167
+      }
+    ],
+    "4.2 Generate idempotent migration script [LOCAL]": [
+      {
+        "executionId": "e1e01586-5058-4e6f-83e7-f5ba0a7c30b1",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787181478687
+      },
+      {
+        "executionId": "e1e01586-5058-4e6f-83e7-f5ba0a7c30b1",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787181510133
+      }
+    ],
+    "4.3 Transfer files to EC2 [LOCAL]": [
+      {
+        "executionId": "e1e01586-5058-4e6f-83e7-f5ba0a7c30b1",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787181515537
+      },
+      {
+        "executionId": "e1e01586-5058-4e6f-83e7-f5ba0a7c30b1",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787181635640
+      }
+    ],
+    "4.4 SSH into EC2 and run migration [EC2]": [
+      {
+        "executionId": "e1e01586-5058-4e6f-83e7-f5ba0a7c30b1",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787181641124
+      },
+      {
+        "executionId": "e1e01586-5058-4e6f-83e7-f5ba0a7c30b1",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787181906091
+      }
+    ],
+    "4.5 Configure environment variables [EC2]": [
+      {
+        "executionId": "e1e01586-5058-4e6f-83e7-f5ba0a7c30b1",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787181910526
+      },
+      {
+        "executionId": "e1e01586-5058-4e6f-83e7-f5ba0a7c30b1",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787183118342
+      }
+    ],
+    "4.6 Start and verify the API service [EC2]": [
+      {
+        "executionId": "e1e01586-5058-4e6f-83e7-f5ba0a7c30b1",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787183123109
+      },
+      {
+        "executionId": "e1e01586-5058-4e6f-83e7-f5ba0a7c30b1",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787185237135
+      }
+    ],
+    "4. Phase 3: Backend Deploy [LOCAL → EC2]": [
+      {
+        "executionId": "e1e01586-5058-4e6f-83e7-f5ba0a7c30b1",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787185237229
+      }
+    ],
+    "5.1 Build the Angular SPA [LOCAL]": [
+      {
+        "executionId": "e1e01586-5058-4e6f-83e7-f5ba0a7c30b1",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787185243444
+      },
+      {
+        "executionId": "e1e01586-5058-4e6f-83e7-f5ba0a7c30b1",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787185309061
+      }
+    ],
+    "5.2 Sync to S3 [LOCAL]": [
+      {
+        "executionId": "e1e01586-5058-4e6f-83e7-f5ba0a7c30b1",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787185314033
+      },
+      {
+        "executionId": "e1e01586-5058-4e6f-83e7-f5ba0a7c30b1",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787185336984
+      }
+    ],
+    "5.3 Invalidate CloudFront cache [LOCAL]": [
+      {
+        "executionId": "e1e01586-5058-4e6f-83e7-f5ba0a7c30b1",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787185342061
+      },
+      {
+        "executionId": "e1e01586-5058-4e6f-83e7-f5ba0a7c30b1",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787185356071
+      }
+    ],
+    "5. Phase 4: Frontend Deploy [LOCAL]": [
+      {
+        "executionId": "e1e01586-5058-4e6f-83e7-f5ba0a7c30b1",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787185356128
+      }
+    ],
+    "6.1 Health check via CloudFront [LOCAL]": [
+      {
+        "executionId": "e1e01586-5058-4e6f-83e7-f5ba0a7c30b1",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787185362762
+      },
+      {
+        "executionId": "e1e01586-5058-4e6f-83e7-f5ba0a7c30b1",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787186027591
+      }
+    ],
+    "6.2 Load the SPA in browser [LOCAL]": [
+      {
+        "executionId": "e1e01586-5058-4e6f-83e7-f5ba0a7c30b1",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787186028435
+      },
+      {
+        "executionId": "e1e01586-5058-4e6f-83e7-f5ba0a7c30b1",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787186046191
+      }
+    ],
+    "6.3 Test login API [LOCAL]": [
+      {
+        "executionId": "e1e01586-5058-4e6f-83e7-f5ba0a7c30b1",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787186050920
+      },
+      {
+        "executionId": "e1e01586-5058-4e6f-83e7-f5ba0a7c30b1",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787186126513
+      }
+    ],
+    "6.4 Verify CORS headers [LOCAL]": [
+      {
+        "executionId": "e1e01586-5058-4e6f-83e7-f5ba0a7c30b1",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787186131539
+      },
+      {
+        "executionId": "e1e01586-5058-4e6f-83e7-f5ba0a7c30b1",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787186144653
+      }
+    ],
+    "6. Phase 5: End-to-End Validation [LOCAL]": [
+      {
+        "executionId": "e1e01586-5058-4e6f-83e7-f5ba0a7c30b1",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787186144709
+      }
+    ],
+    "7. Deployment Complete": [
+      {
+        "executionId": "e1e01586-5058-4e6f-83e7-f5ba0a7c30b1",
+        "chatSessionId": "sess_a6395cf0-266a-4f89-8d1f-f6ae6195b2a7",
+        "timestamp": 1787186146659
+      }
+    ]
+  }
+}

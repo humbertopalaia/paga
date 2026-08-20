@@ -1,0 +1,35 @@
+@use '@angular/material' as mat;
+
+// Light theme definition using Angular Material 19 theming API
+$paga-light-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: mat.$blue-palette,
+  ),
+  typography: (
+    plain-family: 'Inter',
+    brand-family: 'Inter',
+  ),
+));
+
+// Dark theme definition
+$paga-dark-theme: mat.define-theme((
+  color: (
+    theme-type: dark,
+    primary: mat.$blue-palette,
+  ),
+  typography: (
+    plain-family: 'Inter',
+    brand-family: 'Inter',
+  ),
+));
+
+// Apply light theme globally
+html {
+  @include mat.all-component-themes($paga-light-theme);
+}
+
+// Apply dark theme when data-theme="dark" is set on <html>
+[data-theme="dark"] {
+  @include mat.all-component-colors($paga-dark-theme);
+}

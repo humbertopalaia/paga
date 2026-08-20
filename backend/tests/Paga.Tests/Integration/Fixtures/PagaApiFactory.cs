@@ -13,6 +13,21 @@ public class PagaApiFactory : WebApplicationFactory<Program>
 {
     private readonly string _connectionString;
 
+    /// <summary>
+    /// Known admin email seeded during startup.
+    /// </summary>
+    public const string AdminEmail = "palaia@increvasenocanal.com";
+
+    /// <summary>
+    /// Known admin password used in the test seed.
+    /// </summary>
+    public const string AdminPassword = "TestAdmin123!";
+
+    /// <summary>
+    /// JWT signing key used in tests (at least 32 characters).
+    /// </summary>
+    public const string JwtKey = "IntegrationTestJwtKeyMustBeAtLeast32Characters!";
+
     public PagaApiFactory(string connectionString)
     {
         _connectionString = connectionString;
@@ -30,8 +45,10 @@ public class PagaApiFactory : WebApplicationFactory<Program>
             config.AddInMemoryCollection(new Dictionary<string, string?>
             {
                 ["ConnectionStrings:Default"] = _connectionString,
-                ["Seed:AdminEmail"] = "palaia@increvasenocanal.com",
-                ["Seed:AdminPassword"] = "TestAdmin123!",
+                ["Jwt:Key"] = JwtKey,
+                ["Seed:AdminEmail"] = AdminEmail,
+                ["Seed:AdminPassword"] = AdminPassword,
+                ["RefreshToken:ExpirationDays"] = "7",
                 ["Serilog:MinimumLevel:Default"] = "Warning"
             });
         });

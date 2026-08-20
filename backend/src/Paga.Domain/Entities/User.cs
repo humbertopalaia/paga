@@ -20,6 +20,20 @@ public class User
         CreatedAt = createdAt;
     }
 
+    /// <summary>
+    /// Updates the user's mutable fields. Password hash is only changed when a new value is provided.
+    /// </summary>
+    /// <param name="name">New display name.</param>
+    /// <param name="email">New email address.</param>
+    /// <param name="passwordHash">New BCrypt hash, or null to keep the current one.</param>
+    public void Update(string name, string email, string? passwordHash = null)
+    {
+        Name = name;
+        Email = email;
+        if (passwordHash is not null)
+            PasswordHash = passwordHash;
+    }
+
     // EF Core requires a parameterless constructor; kept private to enforce invariants.
     private User()
     {
