@@ -1,0 +1,466 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Add `Update` method to `Expense` entity": [
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787315770180
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787315781073
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787315895787
+      }
+    ],
+    "1.2 Create DTOs and filter record for expenses": [
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787315770743
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787315781826
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787315896837
+      }
+    ],
+    "1.3 Create FluentValidation validators": [
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787315770880
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787315908047
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787316115116
+      }
+    ],
+    "1.4 Create `IExpenseService` interface": [
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787315770980
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787315782594
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787315897688
+      }
+    ],
+    "2.1 Implement `ExpenseService`": [
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787315771018
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787315909865
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787316115795
+      }
+    ],
+    "2.2 Register `IExpenseService` in DI": [
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787315771065
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787316125903
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787316267444
+      }
+    ],
+    "3.1 Create `ExpensesController`": [
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787315771105
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787316271897
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787316514892
+      }
+    ],
+    "4. Checkpoint — Backend builds": [
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787315771147
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787316841988
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787316905919
+      }
+    ],
+    "5.1 Create `ExpenseServiceTests`": [
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787315771188
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787316272586
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787316515528
+      }
+    ],
+    "5.2 Create validator unit tests": [
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787315771237
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787316126470
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787316266747
+      }
+    ],
+    "6.1 Create `ExpensesEndpointsTests`": [
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787315771269
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787316524614
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787316821243
+      }
+    ],
+    "7. Checkpoint — Backend tests pass": [
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787315771346
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787316842710
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787316906622
+      }
+    ],
+    "8.1 Create expense model interfaces": [
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787315771387
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787315783362
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787315898621
+      }
+    ],
+    "8.2 Create `ExpenseService`": [
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787315771430
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787315910003
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787316116625
+      }
+    ],
+    "9.1 Create `ExpenseListComponent`": [
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787315771468
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787316525408
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787316822066
+      }
+    ],
+    "10.1 Create `ExpenseFormComponent`": [
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787315771502
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787316929788
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787317104202
+      }
+    ],
+    "11.1 Create/update `expenses.routes.ts`": [
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787315771546
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787317110258
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787317115844
+      }
+    ],
+    "12. Checkpoint — Frontend builds": [
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787315771614
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787317121661
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787317154855
+      }
+    ],
+    "13.1 Write unit tests for `ExpenseService`": [
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787315771650
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787317160865
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787317384842
+      }
+    ],
+    "13.2 Write unit tests for `ExpenseListComponent`": [
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787315771700
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787317391935
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787317725319
+      }
+    ],
+    "13.3 Write unit tests for `ExpenseFormComponent`": [
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787315771747
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787317392647
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787317724504
+      }
+    ],
+    "13.4 Write unit tests for overdue detection": [
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787315771787
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787317161744
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787317385601
+      }
+    ],
+    "14. Final Checkpoint — All tests pass": [
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787315771836
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787317730761
+      },
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787317813206
+      }
+    ],
+    "1. Backend — Entity Update Method, DTOs, Validators, and Service Interface": [
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787316115161
+      }
+    ],
+    "8. Frontend — Model and Service": [
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787316116669
+      }
+    ],
+    "2. Backend — Service Implementation": [
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787316267488
+      }
+    ],
+    "3. Backend — Controller": [
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787316514990
+      }
+    ],
+    "5. Backend — Unit Tests": [
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787316515563
+      }
+    ],
+    "6. Backend — Integration Tests": [
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787316821284
+      }
+    ],
+    "9. Frontend — List Component": [
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787316822098
+      }
+    ],
+    "10. Frontend — Form Component": [
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787317104270
+      }
+    ],
+    "11. Frontend — Routes and Navigation Wiring": [
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787317115885
+      }
+    ],
+    "13. Frontend — Unit Tests": [
+      {
+        "executionId": "f19a1a77-6c6a-4661-8243-f5cfb3a106e0",
+        "chatSessionId": "sess_b32e8966-5bd0-46d2-aaf5-8ef08adf9612",
+        "timestamp": 1787317725393
+      }
+    ]
+  }
+}
