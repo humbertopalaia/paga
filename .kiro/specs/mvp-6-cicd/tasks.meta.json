@@ -1,0 +1,185 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Add CodeStar Connection permission and export CodePipeline/CodeBuild role ARNs": [
+      {
+        "executionId": "45f393f2-2234-4ed6-a770-f081aa825d24",
+        "chatSessionId": "sess_d6b4b4d3-9b13-4937-a92b-e72be120d122",
+        "timestamp": 1787223428213
+      },
+      {
+        "executionId": "45f393f2-2234-4ed6-a770-f081aa825d24",
+        "chatSessionId": "sess_d6b4b4d3-9b13-4937-a92b-e72be120d122",
+        "timestamp": 1787225220988
+      }
+    ],
+    "1. Update IAM stack with CodePipeline and CodeBuild role exports": [
+      {
+        "executionId": "45f393f2-2234-4ed6-a770-f081aa825d24",
+        "chatSessionId": "sess_d6b4b4d3-9b13-4937-a92b-e72be120d122",
+        "timestamp": 1787225221219
+      }
+    ],
+    "2.1 Create `infra/buildspec-frontend.yml`": [
+      {
+        "executionId": "a523cefb-b46d-49ee-9543-033070330370",
+        "chatSessionId": "sess_5c7a8e69-93dd-4130-9e2e-eccb57a8c374",
+        "timestamp": 1787226146410
+      },
+      {
+        "executionId": "a523cefb-b46d-49ee-9543-033070330370",
+        "chatSessionId": "sess_5c7a8e69-93dd-4130-9e2e-eccb57a8c374",
+        "timestamp": 1787226850102
+      }
+    ],
+    "2. Create frontend buildspec": [
+      {
+        "executionId": "a523cefb-b46d-49ee-9543-033070330370",
+        "chatSessionId": "sess_5c7a8e69-93dd-4130-9e2e-eccb57a8c374",
+        "timestamp": 1787226850153
+      }
+    ],
+    "3.1 Create `infra/buildspec-backend.yml`": [
+      {
+        "executionId": "cefcff53-45da-4ab1-a0ef-add992d2071c",
+        "chatSessionId": "sess_c6968946-21a3-4a8e-9752-c5b68cc3c49f",
+        "timestamp": 1787226933362
+      },
+      {
+        "executionId": "cefcff53-45da-4ab1-a0ef-add992d2071c",
+        "chatSessionId": "sess_c6968946-21a3-4a8e-9752-c5b68cc3c49f",
+        "timestamp": 1787226995369
+      }
+    ],
+    "3. Create backend buildspec": [
+      {
+        "executionId": "cefcff53-45da-4ab1-a0ef-add992d2071c",
+        "chatSessionId": "sess_c6968946-21a3-4a8e-9752-c5b68cc3c49f",
+        "timestamp": 1787226995405
+      }
+    ],
+    "4. Checkpoint - Validate buildspec files": [
+      {
+        "executionId": "d2b86460-4020-472a-b03e-ffbcbb6c5ab6",
+        "chatSessionId": "sess_a2c83ec1-5eec-4b39-a135-1d07658c9c3b",
+        "timestamp": 1787227038574
+      }
+    ],
+    "5.1 Create `infra/cloudformation/pipeline.yaml` — Parameters and ArtifactBucket": [
+      {
+        "executionId": "0f3cc66c-32fa-49e0-aeaf-70c9c5f03630",
+        "chatSessionId": "sess_c3779cb2-9ff9-45c3-a3d1-f44a0768f58f",
+        "timestamp": 1787227436053
+      },
+      {
+        "executionId": "0f3cc66c-32fa-49e0-aeaf-70c9c5f03630",
+        "chatSessionId": "sess_c3779cb2-9ff9-45c3-a3d1-f44a0768f58f",
+        "timestamp": 1787227446048
+      },
+      {
+        "executionId": "0f3cc66c-32fa-49e0-aeaf-70c9c5f03630",
+        "chatSessionId": "sess_c3779cb2-9ff9-45c3-a3d1-f44a0768f58f",
+        "timestamp": 1787229097069
+      }
+    ],
+    "5.2 Add CodeBuild projects to `pipeline.yaml`": [
+      {
+        "executionId": "0f3cc66c-32fa-49e0-aeaf-70c9c5f03630",
+        "chatSessionId": "sess_c3779cb2-9ff9-45c3-a3d1-f44a0768f58f",
+        "timestamp": 1787227436102
+      },
+      {
+        "executionId": "0f3cc66c-32fa-49e0-aeaf-70c9c5f03630",
+        "chatSessionId": "sess_c3779cb2-9ff9-45c3-a3d1-f44a0768f58f",
+        "timestamp": 1787229101495
+      },
+      {
+        "executionId": "0f3cc66c-32fa-49e0-aeaf-70c9c5f03630",
+        "chatSessionId": "sess_c3779cb2-9ff9-45c3-a3d1-f44a0768f58f",
+        "timestamp": 1787229793010
+      }
+    ],
+    "5.3 Add CodeDeploy resources to `pipeline.yaml`": [
+      {
+        "executionId": "0f3cc66c-32fa-49e0-aeaf-70c9c5f03630",
+        "chatSessionId": "sess_c3779cb2-9ff9-45c3-a3d1-f44a0768f58f",
+        "timestamp": 1787227436132
+      },
+      {
+        "executionId": "0f3cc66c-32fa-49e0-aeaf-70c9c5f03630",
+        "chatSessionId": "sess_c3779cb2-9ff9-45c3-a3d1-f44a0768f58f",
+        "timestamp": 1787229102376
+      },
+      {
+        "executionId": "0f3cc66c-32fa-49e0-aeaf-70c9c5f03630",
+        "chatSessionId": "sess_c3779cb2-9ff9-45c3-a3d1-f44a0768f58f",
+        "timestamp": 1787229793835
+      }
+    ],
+    "5.4 Add Pipeline resource to `pipeline.yaml`": [
+      {
+        "executionId": "0f3cc66c-32fa-49e0-aeaf-70c9c5f03630",
+        "chatSessionId": "sess_c3779cb2-9ff9-45c3-a3d1-f44a0768f58f",
+        "timestamp": 1787227436176
+      },
+      {
+        "executionId": "0f3cc66c-32fa-49e0-aeaf-70c9c5f03630",
+        "chatSessionId": "sess_c3779cb2-9ff9-45c3-a3d1-f44a0768f58f",
+        "timestamp": 1787229798153
+      },
+      {
+        "executionId": "0f3cc66c-32fa-49e0-aeaf-70c9c5f03630",
+        "chatSessionId": "sess_c3779cb2-9ff9-45c3-a3d1-f44a0768f58f",
+        "timestamp": 1787230537351
+      }
+    ],
+    "5.5 Validate pipeline template": [
+      {
+        "executionId": "0f3cc66c-32fa-49e0-aeaf-70c9c5f03630",
+        "chatSessionId": "sess_c3779cb2-9ff9-45c3-a3d1-f44a0768f58f",
+        "timestamp": 1787227436206
+      },
+      {
+        "executionId": "0f3cc66c-32fa-49e0-aeaf-70c9c5f03630",
+        "chatSessionId": "sess_c3779cb2-9ff9-45c3-a3d1-f44a0768f58f",
+        "timestamp": 1787230541613
+      },
+      {
+        "executionId": "0f3cc66c-32fa-49e0-aeaf-70c9c5f03630",
+        "chatSessionId": "sess_c3779cb2-9ff9-45c3-a3d1-f44a0768f58f",
+        "timestamp": 1787231033267
+      }
+    ],
+    "7.1 Add deployment instructions as a comment or notes section": [
+      {
+        "executionId": "0f3cc66c-32fa-49e0-aeaf-70c9c5f03630",
+        "chatSessionId": "sess_c3779cb2-9ff9-45c3-a3d1-f44a0768f58f",
+        "timestamp": 1787227436238
+      },
+      {
+        "executionId": "d1cbd5d9-6639-4289-b957-981c89dc8366",
+        "chatSessionId": "sess_df8962aa-0569-4908-8fac-9108efb53e29",
+        "timestamp": 1787231799359
+      },
+      {
+        "executionId": "d1cbd5d9-6639-4289-b957-981c89dc8366",
+        "chatSessionId": "sess_df8962aa-0569-4908-8fac-9108efb53e29",
+        "timestamp": 1787231940020
+      }
+    ],
+    "5. Create pipeline CloudFormation template": [
+      {
+        "executionId": "0f3cc66c-32fa-49e0-aeaf-70c9c5f03630",
+        "chatSessionId": "sess_c3779cb2-9ff9-45c3-a3d1-f44a0768f58f",
+        "timestamp": 1787231033300
+      }
+    ],
+    "7. Document deployment steps for the user": [
+      {
+        "executionId": "d1cbd5d9-6639-4289-b957-981c89dc8366",
+        "chatSessionId": "sess_df8962aa-0569-4908-8fac-9108efb53e29",
+        "timestamp": 1787231940053
+      }
+    ]
+  }
+}

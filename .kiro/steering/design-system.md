@@ -68,3 +68,47 @@ Todo componente interativo implementa os estados default, hover, focus, active e
 Mobile `< 768px`, tablet `768–1024px`, desktop `> 1024px`. Sidebar colapsa em mobile.
 Cards do dashboard em grid que degrada para coluna única. Tabelas ganham scroll horizontal
 ou layout empilhado no mobile.
+
+## Mapa de frames no Figma
+
+Arquivo `PKgbbuZodtcKGlSIFuvkcO`. Node ids verificados. Antes de implementar qualquer tela, rode
+`get_design_context` no node id do frame correspondente.
+
+| Página | Frame | node-id |
+|--------|-------|---------|
+| Auth (`0:1`) | Login | `15:2` |
+| Auth | Login - Estados | `16:2` |
+| Usuários (`9:2`) | Listagem - Usuários | `20:2` |
+| Usuários | Form - Inclusão Usuário | `21:2` |
+| Usuários | Form - Alteração Usuário | `21:25` |
+| Usuários | Modal - Confirmação Exclusão Usuário | `21:44` |
+| Layout (`9:3`) | Sidebar/Navbar | `18:2` |
+| Layout | Layout - Light Mode | `18:22` |
+| Layout | Layout - Dark Mode | `18:50` |
+| Dashboard (`9:4`) | Dashboard - Visão Geral | `19:2` |
+| Dashboard | Dashboard - Gráficos | `19:17` |
+| Tipos de Despesa (`9:5`) | Listagem - Tipos de Despesa | `22:2` |
+| Tipos de Despesa | Form - Inclusão Tipo | `22:54` |
+| Tipos de Despesa | Form - Alteração Tipo | `22:65` |
+| Tipos de Despesa | Modal - Confirmação Exclusão | `22:76` |
+| Receitas (`9:6`) | Listagem - Receitas | `23:2` |
+| Receitas | Form - Inclusão Receita | `24:2` |
+| Receitas | Form - Alteração Receita | `24:25` |
+| Receitas | Form - Recorrência | `24:48` |
+| Receitas | Modal - Confirmação Exclusão | `32:2` |
+| Despesas (`9:7`) | Listagem - Despesas | `25:2` |
+| Despesas | Form - Inclusão Despesa | `26:2` |
+| Despesas | Form - Alteração Despesa | `26:30` |
+| Despesas | Form - Recorrência | `26:54` |
+| Despesas | Modal - Confirmação Exclusão | `32:13` |
+| Componentes (`9:8`) | Design Tokens | `11:2` |
+| Componentes | Componentes Compartilhados | `12:2` |
+| Componentes | Estados | `28:2` |
+
+Duas peculiaridades deste arquivo:
+
+- **Não há variables.** `get_variable_defs` volta vazio; os tokens estão como texto e fills dentro
+  do frame Design Tokens (`11:2`). Extraia por `get_design_context`, não por variables.
+- **A listagem de páginas do `get_metadata` é incompleta** neste arquivo: sem `nodeId` ela devolve
+  apenas a página Auth. Para enumerar páginas, use `use_figma` percorrendo `figma.root.children`
+  com `await page.loadAsync()`.

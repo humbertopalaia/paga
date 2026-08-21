@@ -1,0 +1,144 @@
+<div class="income-list-container">
+  <div class="income-list-header">
+    <button mat-flat-button color="primary" routerLink="/incomes/new" class="new-income-btn">
+      <mat-icon>add</mat-icon>
+      Nova Receita
+    </button>
+  </div>
+
+  <div class="income-list-filters">
+    <mat-form-field appearance="outline" class="filter-field filter-field--date">
+      <mat-label>Data de</mat-label>
+      <input matInput
+             [matDatepicker]="pickerFrom"
+             [formControl]="dateFromFilter"
+             (dateChange)="onDateFilterChange()" />
+      <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
+      <mat-datepicker #pickerFrom></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="filter-field filter-field--date">
+      <mat-label>Data até</mat-label>
+      <input matInput
+             [matDatepicker]="pickerTo"
+             [formControl]="dateToFilter"
+             (dateChange)="onDateFilterChange()" />
+      <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
+      <mat-datepicker #pickerTo></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="filter-field filter-field--description">
+      <mat-icon matPrefix>search</mat-icon>
+      <input matInput
+             [formControl]="descriptionFilter"
+             placeholder="Buscar por descrição..." />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="filter-field filter-field--recurring">
+      <mat-label>Recorrente</mat-label>
+      <mat-select [formControl]="isRecurringFilter" (selectionChange)="onRecurringFilterChange()">
+        <mat-option [value]="null">Todos</mat-option>
+        <mat-option [value]="true">Sim</mat-option>
+        <mat-option [value]="false">Não</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <!-- Loading State -->
+  @if (isLoading() && !error()) {
+    <div class="loading-skeleton">
+      @for (row of [1, 2, 3, 4, 5]; track row) {
+        <div class="skeleton-row">
+          <div class="skeleton-cell skeleton-cell--date"></div>
+          <div class="skeleton-cell skeleton-cell--description"></div>
+          <div class="skeleton-cell skeleton-cell--value"></div>
+          <div class="skeleton-cell skeleton-cell--recurring"></div>
+          <div class="skeleton-cell skeleton-cell--actions"></div>
+        </div>
+      }
+    </div>
+  }
+
+  <!-- Error State -->
+  @if (error() && !isLoading()) {
+    <div class="error-state">
+      <mat-icon class="error-state__icon">error_outline</mat-icon>
+      <p class="error-state__message">{{ error() }}</p>
+      <button mat-flat-button color="primary" (click)="loadIncomes()" class="error-state__retry">
+        Tentar Novamente
+      </button>
+    </div>
+  }
+
+  <!-- Empty State -->
+  @if (!isLoading() && !error() && incomes().length === 0) {
+    <div class="empty-state">
+      <mat-icon class="empty-state__icon">account_balance_wallet</mat-icon>
+      <p class="empty-state__message">Nenhum registro encontrado</p>
+      <p class="empty-state__suggestion">Ajuste os filtros ou adicione uma nova receita.</p>
+    </div>
+  }
+
+  <!-- Table + Pagination -->
+  @if (!isLoading() && !error() && incomes().length > 0) {
+    <table mat-table [dataSource]="incomes()" class="income-table">
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef>Data</th>
+        <td mat-cell *matCellDef="let income">{{ parseDate(income.date) | date:'dd/MM/yyyy' }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef>Descrição</th>
+        <td mat-cell *matCellDef="let income">{{ income.description }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="value">
+        <th mat-header-cell *matHeaderCellDef>Valor</th>
+        <td mat-cell *matCellDef="let income" class="value-cell">
+          {{ income.value | currency:'BRL':'symbol':'1.2-2' }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="isRecurring">
+        <th mat-header-cell *matHeaderCellDef>Recorrente</th>
+        <td mat-cell *matCellDef="let income">{{ income.isRecurring ? 'Sim' : 'Não' }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Ações</th>
+        <td mat-cell *matCellDef="let income">
+          <div class="action-buttons">
+            <button class="action-btn action-btn--edit"
+                    (click)="editIncome(income)"
+                    aria-label="Editar receita">
+              Editar
+            </button>
+            <button class="action-btn action-btn--delete"
+                    (click)="deleteIncome(income)"
+                    aria-label="Excluir receita">
+              Excluir
+            </button>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <!-- Custom Pagination -->
+    @if (totalPages() > 1) {
+      <div class="pagination">
+        @for (page of pages(); track page) {
+          <button class="pagination__btn"
+                  [class.pagination__btn--active]="page === pageNumber()"
+                  (click)="goToPage(page)"
+                  [attr.aria-label]="'Página ' + page"
+                  [attr.aria-current]="page === pageNumber() ? 'page' : null">
+            {{ page }}
+          </button>
+        }
+      </div>
+    }
+  }
+</div>

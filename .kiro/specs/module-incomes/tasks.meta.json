@@ -1,0 +1,524 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Add `Update` method to `Income` entity": [
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274361242
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274372048
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274549108
+      }
+    ],
+    "1.2 Create DTOs and filter record for incomes": [
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274361316
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274372777
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274549996
+      }
+    ],
+    "1.3 Create FluentValidation validators": [
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274361361
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274560620
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274963194
+      }
+    ],
+    "1.4 Create `IIncomeService` interface": [
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274361411
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274373550
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274550789
+      }
+    ],
+    "2.1 Implement `IncomeService`": [
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274361505
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274561384
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274964012
+      }
+    ],
+    "2.2 Register `IIncomeService` in DI": [
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274361584
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274974992
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787275265941
+      }
+    ],
+    "3.1 Create `IncomesController`": [
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274361636
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787275276904
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787275464728
+      }
+    ],
+    "4. Checkpoint — Backend builds": [
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274361706
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787275826626
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787275892259
+      }
+    ],
+    "5.1 Create `IncomeServiceTests`": [
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274361789
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787275277599
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787275465511
+      }
+    ],
+    "5.2 Create validator unit tests": [
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274361874
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274975720
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787275266843
+      }
+    ],
+    "6.1 Create `IncomesEndpointsTests`": [
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274361958
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787275475992
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787275798796
+      }
+    ],
+    "7. Checkpoint — Backend tests pass": [
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274362007
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787275827425
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787275892892
+      }
+    ],
+    "8.1 Create `RecurrenceSelector` component": [
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274362052
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274562228
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274964824
+      }
+    ],
+    "8.2 Create `CurrencyMask` directive": [
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274362098
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274563008
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274965692
+      }
+    ],
+    "9.1 Create income model interfaces": [
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274362165
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274374479
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274551723
+      }
+    ],
+    "9.2 Create `IncomeService`": [
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274362262
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274976582
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787275267642
+      }
+    ],
+    "10.1 Create `IncomeListComponent`": [
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274362360
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787275477057
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787275798227
+      }
+    ],
+    "11.1 Create `IncomeFormComponent`": [
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274362411
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787275903689
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787276063318
+      }
+    ],
+    "12.1 Create/update `incomes.routes.ts`": [
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274362473
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787276069104
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787276074122
+      }
+    ],
+    "13. Checkpoint — Frontend builds": [
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274362538
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787276079434
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787276134960
+      }
+    ],
+    "14.1 Write unit tests for `IncomeService`": [
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274362596
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787276151034
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787276420910
+      }
+    ],
+    "14.2 Write unit tests for `IncomeListComponent`": [
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274362704
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787276153432
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787276421763
+      }
+    ],
+    "14.3 Write unit tests for `IncomeFormComponent`": [
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274362761
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787276154225
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787276422630
+      }
+    ],
+    "14.4 Write unit tests for `RecurrenceSelector`": [
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274362814
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787276151845
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787276419261
+      }
+    ],
+    "14.5 Write unit tests for `CurrencyMask`": [
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274362873
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787276152604
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787276420101
+      }
+    ],
+    "15. Final Checkpoint — All tests pass": [
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274362932
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787276428137
+      },
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787276519194
+      }
+    ],
+    "1. Backend — Entity Update Method, DTOs, Validators, and Service Interface": [
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274963276
+      }
+    ],
+    "8. Frontend — Shared Components": [
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787274965821
+      }
+    ],
+    "2. Backend — Service Implementation": [
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787275266056
+      }
+    ],
+    "9. Frontend — Model and Service": [
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787275267700
+      }
+    ],
+    "3. Backend — Controller": [
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787275464845
+      }
+    ],
+    "5. Backend — Unit Tests": [
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787275465679
+      }
+    ],
+    "10. Frontend — List Component": [
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787275798374
+      }
+    ],
+    "6. Backend — Integration Tests": [
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787275798843
+      }
+    ],
+    "11. Frontend — Form Component": [
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787276063370
+      }
+    ],
+    "12. Frontend — Routes and Navigation Wiring": [
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787276074175
+      }
+    ],
+    "14. Frontend — Unit Tests": [
+      {
+        "executionId": "246c658d-5b24-4e68-9b49-126c5e5c75dd",
+        "chatSessionId": "sess_1e846562-f708-4c56-9330-6b123c7a822b",
+        "timestamp": 1787276422681
+      }
+    ]
+  }
+}

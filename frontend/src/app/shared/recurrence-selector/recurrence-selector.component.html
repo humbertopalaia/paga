@@ -1,0 +1,23 @@
+<div class="recurrence-selector">
+  <mat-slide-toggle
+    [checked]="isRecurring()"
+    [disabled]="disabled()"
+    (change)="onToggleChange($event.checked)"
+    [class.active]="isRecurring()">
+    Recorrente
+  </mat-slide-toggle>
+
+  @if (isRecurring()) {
+    <mat-form-field appearance="outline" class="frequency-field">
+      <mat-label>Frequência</mat-label>
+      <mat-select
+        [value]="frequency()"
+        [disabled]="disabled()"
+        (selectionChange)="onFrequencyChange($event.value)">
+        @for (option of frequencyOptions; track option.value) {
+          <mat-option [value]="option.value">{{ option.label }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+  }
+</div>

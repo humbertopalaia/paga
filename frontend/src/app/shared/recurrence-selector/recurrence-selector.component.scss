@@ -1,0 +1,26 @@
+.recurrence-selector {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+mat-slide-toggle.active {
+  --mdc-switch-selected-track-color: var(--primary-500);
+  --mdc-switch-selected-handle-color: var(--primary-500);
+  --mdc-switch-selected-hover-track-color: var(--primary-600);
+  --mdc-switch-selected-hover-handle-color: var(--primary-600);
+  --mdc-switch-selected-focus-track-color: var(--primary-500);
+  --mdc-switch-selected-focus-handle-color: var(--primary-500);
+  --mdc-switch-selected-pressed-track-color: var(--primary-700);
+  --mdc-switch-selected-pressed-handle-color: var(--primary-700);
+
+  ::ng-deep .mdc-switch__label {
+    color: var(--primary-500);
+    font-weight: 500;
+  }
+}
+
+.frequency-field {
+  width: 160px;
+}
