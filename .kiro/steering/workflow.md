@@ -1,64 +1,72 @@
 # Fluxo de trabalho
 
-## Entrega em curso: MVP walking skeleton
+## Status da entrega
 
-**A ordem dos sprints do board está suspensa em favor de uma fatia vertical.** O objetivo é ter
-Login + shell com menus + cadastro de usuário rodando em produção na AWS antes de implementar os
-demais módulos. Siga esta ordem:
+O MVP walking skeleton está **concluído e em produção**: Login, shell com menus e cadastro de
+usuário, publicados na AWS por deploy manual.
 
-| Spec | Stories | Entrega |
-|------|---------|---------|
-| `mvp-1-backend-foundation` | 1.1 + 1.2 | Solução .NET, 5 entidades, migration inicial, `/health`, admin semeado |
-| `mvp-2-auth-and-users-api` | 1.3 + 1.4 | Login/refresh/logout + CRUD de usuários na API |
-| `mvp-3-frontend-foundation` | 3.1 + 3.2 + 3.3 | Projeto Angular, tokens/tema, shell com sidebar |
-| `mvp-4-login-and-users-ui` | 4.1 + 4.2 | Tela de login, guard/interceptor, telas de usuário |
-| `mvp-5-infra-manual-deploy` | 5.1 + parte da 5.3 | Infra provisionada e deploy manual validado |
-| `mvp-6-cicd` | 5.2 | CodePipeline end-to-end |
+| Spec | Stories | Status |
+|------|---------|--------|
+| `mvp-1-backend-foundation` | PP-7, PP-8 | Concluída |
+| `mvp-2-auth-and-users-api` | PP-9, PP-10 | Concluída — restam testes de propriedade opcionais |
+| `mvp-3-frontend-foundation` | PP-57, PP-58, PP-59 | Concluída — restam testes de propriedade opcionais |
+| `mvp-4-login-and-users-ui` | PP-69, PP-70 | Concluída |
+| `mvp-5-infra-manual-deploy` | PP-110 + parte de PP-112 | Concluída |
+| `aws-deploy-checklist` | — | Concluída |
+| `mvp-6-cicd` | PP-111 | Concluída — pipeline no ar, deploy automático em push na main |
 
-Ajustes que essa fatia exige:
+Ajustes do MVP que continuam valendo no código:
 
-- A sidebar mostra os **cinco** itens de menu desde a `mvp-3`. Dashboard, Tipos de Despesa,
-  Receitas e Despesas têm rota registrada apontando para um placeholder "Em construção".
-  Não esconda itens — a navegação precisa ficar estável.
-- `DashboardComponent` existe como placeholder na rota definitiva, porque o login redireciona
-  para ele.
-- Existe um **usuário administrador semeado**, sem o qual é impossível logar em um banco novo.
+- A sidebar mostra os cinco itens; Dashboard, Tipos de Despesa, Receitas e Despesas apontam para
+  placeholder "Em construção" até o módulo correspondente ser entregue.
+- `DashboardComponent` existe como placeholder na rota definitiva.
+- O administrador semeado é `palaia@increvasenocanal.com`.
 
-Módulos fora do MVP (Stories 2.1–2.4 e 4.3–4.6) voltam à ordem original do board depois que a
-`mvp-6` estiver validada.
+## Roadmap a partir daqui
 
-## Ordem de execução (board completo, retomada após o MVP)
+Fatias verticais por módulo: cada spec junta a história de API com a de tela do mesmo módulo, e
+termina com a fatia funcionando em produção — agora automaticamente, via pipeline.
 
-O board (`docs/jira-board.md`) define os sprints. Respeite as dependências: backend do módulo antes
-do frontend do módulo, setup e tema antes das telas.
+| Ordem | Spec | Stories | Observação |
+|-------|------|---------|------------|
+| 1 | `module-expense-types` | PP-31 + PP-71 | Pré-requisito de Despesas |
+| 2 | `module-incomes` | PP-32 + PP-72 | Independente |
+| 3 | `module-expenses` | PP-33 + PP-73 | Depende de `module-expense-types` |
+| 4 | `module-dashboard` | PP-34 + PP-74 | Depende de Receitas e Despesas |
+| 5 | `mvp-7-hardening` | PP-112: PP-127, PP-128, PP-129, PP-130, PP-131 | Rate limiting, backup, logging, teste em produção |
+| 6 | `mvp-8-custom-domain` | PP-112: PP-126 | Domínio próprio, ACM, TLS na origem |
+| 7 | `docs-and-adrs` | PP-132 | Fecha o board |
 
-| Sprint | Stories | Foco |
-|--------|---------|------|
-| 1 | 1.1, 1.2, 1.3, 1.4, 3.1 | Setup backend e frontend, auth, CRUD usuários (API) |
-| 2 | 2.1, 2.2, 2.3, 2.4 | Backend completo (CRUDs + dashboard) |
-| 3 | 3.2, 3.3, 4.1, 4.2 | Tema, layout, login, CRUD usuários (front) |
-| 4 | 4.3, 4.4, 4.5, 4.6 | Frontend completo (CRUDs + dashboard) |
-| 5 | 5.1, 5.2, 5.3 | Infra e deploy |
-| 6 | 6.1 | Documentação |
+**Dívida técnica em produção, postergada por decisão explícita do usuário** para depois dos módulos
+de negócio: CloudFront → EC2 em HTTP, sem rate limiting, sem security headers e **sem backup do
+banco**. Aceitável enquanto a base só tem o administrador semeado e dados de teste. O gatilho para
+antecipar a `mvp-7` é o usuário começar a inserir lançamento financeiro real — a partir daí, perder
+o banco passa a doer.
+
+Ao concluir cada spec, transicione as histórias no Jira para Concluído (transição id `41`).
 
 ## Ao implementar uma Story
 
-1. Leia a Story no board: descrição, *Acceptance Criteria* e subtasks.
-2. Se houver referência de Figma, consulte o frame correspondente em `docs/figma-structure.md`
-   antes de montar o layout.
+1. **Fonte de verdade é o Jira**, projeto **PP (PalaIA-PAGA)** em `upd8suporte.atlassian.net`
+   (cloudId `3171b246-a4c7-4a72-ad59-6c18aa2a91a5`). Leia a história pelas ferramentas do Jira:
+   descrição, acceptance criteria e subtarefas. Os arquivos em `docs/` são snapshot derivado e
+   podem estar defasados.
+2. Se a história tem tela, rode `get_design_context` no frame do Figma correspondente. Os node ids
+   verificados estão em `.kiro/steering/design-system.md`.
 3. Implemente seguindo a estrutura e os padrões de steering — não invente pasta, camada ou
    biblioteca nova.
 4. Rode build e testes aplicáveis.
-5. No resumo final, cite a Story e liste os *Acceptance Criteria* atendidos, sinalizando qualquer
-   um que ficou pendente.
+5. No resumo final, cite a história pelo key (ex: `PP-31`) e liste os acceptance criteria
+   atendidos, sinalizando qualquer um que ficou pendente.
+6. Ao concluir, transicione a história no Jira para Concluído (transição id `41`).
 
-Se um *Acceptance Criteria* estiver ambíguo ou conflitar com o design/contrato, pergunte antes de
-escolher por conta própria.
+Se um acceptance criteria estiver ambíguo ou conflitar com o design ou com
+`.kiro/steering/api-contract.md`, pergunte antes de escolher por conta própria.
 
 ## Git
 
 - Remote: `https://github.com/humbertopalaia/paga.git` (`origin`), branch principal `main`.
-- Branch por story: `feature/<numero>-<slug>` (ex: `feature/2.2-incomes-api`).
+- Branch por story, usando o key do Jira: `feature/<KEY>-<slug>` (ex: `feature/PP-32-incomes-api`).
 - Nunca commitar direto em `main`.
 - Commits em inglês, imperativo, escopo pequeno: `feat(incomes): add recurrence validation`.
   Prefixos: `feat`, `fix`, `refactor`, `test`, `docs`, `chore`, `infra`.

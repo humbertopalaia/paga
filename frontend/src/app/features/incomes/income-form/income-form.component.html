@@ -1,0 +1,75 @@
+<div class="form-container">
+  <div class="form-card">
+    <h1 class="form-title">
+      @if (mode() === 'create') {
+        Nova Receita
+      } @else {
+        Editar Receita
+      }
+    </h1>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Data</mat-label>
+        <input
+          matInput
+          [matDatepicker]="datePicker"
+          formControlName="date"
+          placeholder="dd/mm/aaaa"
+        />
+        <mat-datepicker-toggle matIconSuffix [for]="datePicker"></mat-datepicker-toggle>
+        <mat-datepicker #datePicker></mat-datepicker>
+        @if (form.get('date')?.hasError('required') && form.get('date')?.touched) {
+          <mat-error>Data é obrigatória</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Descrição</mat-label>
+        <input
+          matInput
+          formControlName="description"
+          placeholder="Ex: Salário, Freelance..."
+          autocomplete="off"
+        />
+        @if (form.get('description')?.hasError('required') && form.get('description')?.touched) {
+          <mat-error>Descrição é obrigatória</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Valor</mat-label>
+        <input
+          matInput
+          appCurrencyMask
+          formControlName="value"
+          placeholder="R$ 0,00"
+        />
+        @if (form.get('value')?.hasError('required') && form.get('value')?.touched) {
+          <mat-error>Valor é obrigatório</mat-error>
+        }
+        @if (form.get('value')?.hasError('positiveValue') && !form.get('value')?.hasError('required') && form.get('value')?.touched) {
+          <mat-error>O valor deve ser maior que zero</mat-error>
+        }
+      </mat-form-field>
+
+      <app-recurrence-selector formControlName="recurrence"></app-recurrence-selector>
+
+      <div class="form-actions">
+        <button
+          mat-flat-button
+          color="primary"
+          type="submit"
+          [disabled]="form.invalid || isLoading()"
+        >
+          @if (isLoading()) {
+            Salvando...
+          } @else {
+            Salvar
+          }
+        </button>
+        <a mat-button routerLink="/incomes" class="cancel-button">Cancelar</a>
+      </div>
+    </form>
+  </div>
+</div>
