@@ -1,0 +1,280 @@
+﻿.expense-list-container {
+  padding: var(--spacing-lg);
+}
+
+.expense-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: var(--spacing-lg);
+}
+
+.new-expense-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.expense-list-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.filter-field {
+  ::ng-deep .mat-mdc-form-field-infix {
+    min-height: 40px;
+  }
+
+  ::ng-deep .mat-mdc-text-field-wrapper {
+    height: 40px;
+  }
+
+  &--date {
+    width: 160px;
+  }
+
+  &--type {
+    width: 180px;
+  }
+
+  &--description {
+    width: 280px;
+  }
+
+  &--recurring {
+    width: 140px;
+  }
+}
+
+// Loading skeleton
+.loading-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.skeleton-row {
+  display: flex;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  border-radius: 4px;
+  background: var(--bg-secondary);
+}
+
+.skeleton-cell {
+  height: 16px;
+  border-radius: 4px;
+  background: var(--bg-tertiary);
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+
+  &--date {
+    width: 90px;
+  }
+
+  &--description {
+    width: 180px;
+  }
+
+  &--type {
+    width: 100px;
+  }
+
+  &--value {
+    width: 100px;
+  }
+
+  &--recurring {
+    width: 70px;
+  }
+
+  &--actions {
+    width: 140px;
+    margin-left: auto;
+  }
+}
+
+@keyframes skeleton-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+// Error state
+.error-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-2xl) var(--spacing-lg);
+  text-align: center;
+
+  &__icon {
+    font-size: 48px;
+    width: 48px;
+    height: 48px;
+    color: var(--danger);
+    margin-bottom: var(--spacing-md);
+  }
+
+  &__message {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin: 0 0 var(--spacing-md);
+  }
+}
+
+// Empty state
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-2xl) var(--spacing-lg);
+  text-align: center;
+
+  &__icon {
+    font-size: 48px;
+    width: 48px;
+    height: 48px;
+    color: var(--text-muted);
+    margin-bottom: var(--spacing-md);
+  }
+
+  &__message {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin: 0 0 var(--spacing-xs);
+  }
+
+  &__suggestion {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0;
+  }
+}
+
+// Table — force Material table to respect theme tokens
+.expense-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  ::ng-deep {
+    .mat-mdc-table {
+      background: transparent;
+    }
+
+    th.mat-mdc-header-cell {
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--text-secondary);
+      background: var(--bg-tertiary);
+      border-bottom: 1px solid var(--border);
+    }
+
+    td.mat-mdc-cell {
+      font-size: 14px;
+      color: var(--text-primary);
+      background: var(--bg-primary);
+      border-bottom: 1px solid var(--border);
+    }
+
+    tr.mat-mdc-row:last-child td.mat-mdc-cell {
+      border-bottom: none;
+    }
+
+    tr.mat-mdc-row:hover td.mat-mdc-cell {
+      background: var(--bg-secondary);
+    }
+  }
+}
+
+// Overdue highlight — uses danger token with low opacity for both themes
+.overdue-row {
+  ::ng-deep td.mat-mdc-cell {
+    background-color: color-mix(in srgb, var(--danger) 8%, var(--bg-primary));
+  }
+
+  &:hover ::ng-deep td.mat-mdc-cell {
+    background-color: color-mix(in srgb, var(--danger) 12%, var(--bg-primary));
+  }
+}
+
+.overdue-date {
+  color: var(--danger);
+}
+
+// Value always in danger color for expenses
+.value-cell {
+  color: var(--danger);
+  font-weight: 600;
+}
+
+// Action buttons
+.action-buttons {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.action-btn {
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: none;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.15s;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &--edit {
+    background: var(--primary-50);
+    color: var(--primary-500);
+  }
+
+  &--delete {
+    background: color-mix(in srgb, var(--danger) 10%, transparent);
+    color: var(--danger);
+  }
+}
+
+// Pagination
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-lg);
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--bg-primary);
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.15s, color 0.15s;
+
+    &:hover:not(.pagination__btn--active) {
+      background: var(--bg-tertiary);
+    }
+
+    &--active {
+      background: var(--primary-500);
+      color: #ffffff;
+      border-color: var(--primary-500);
+    }
+  }
+}

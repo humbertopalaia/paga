@@ -1,0 +1,94 @@
+<div class="form-container">
+  <div class="form-card">
+    <h1 class="form-title">
+      @if (mode() === 'create') {
+        Nova Despesa
+      } @else {
+        Editar Despesa
+      }
+    </h1>
+
+    @if (typesError()) {
+      <div class="error-state">
+        <p>Não foi possível carregar os tipos de despesa.</p>
+        <button mat-button color="primary" (click)="loadExpenseTypes()">Tentar novamente</button>
+      </div>
+    }
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Vencimento</mat-label>
+        <input
+          matInput
+          [matDatepicker]="datePicker"
+          formControlName="dueDate"
+          placeholder="dd/mm/aaaa"
+        />
+        <mat-datepicker-toggle matIconSuffix [for]="datePicker"></mat-datepicker-toggle>
+        <mat-datepicker #datePicker></mat-datepicker>
+        @if (form.get('dueDate')?.hasError('required') && form.get('dueDate')?.touched) {
+          <mat-error>Vencimento é obrigatório</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Descrição</mat-label>
+        <input
+          matInput
+          formControlName="description"
+          placeholder="Ex: Aluguel, Internet..."
+          autocomplete="off"
+        />
+        @if (form.get('description')?.hasError('required') && form.get('description')?.touched) {
+          <mat-error>Descrição é obrigatória</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Tipo de Despesa</mat-label>
+        <mat-select formControlName="expenseTypeId" placeholder="Selecione um tipo">
+          @for (type of expenseTypes(); track type.id) {
+            <mat-option [value]="type.id">{{ type.name }}</mat-option>
+          }
+        </mat-select>
+        @if (form.get('expenseTypeId')?.hasError('required') && form.get('expenseTypeId')?.touched) {
+          <mat-error>Tipo de despesa é obrigatório</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Valor</mat-label>
+        <input
+          matInput
+          appCurrencyMask
+          formControlName="value"
+          placeholder="R$ 0,00"
+        />
+        @if (form.get('value')?.hasError('required') && form.get('value')?.touched) {
+          <mat-error>Valor é obrigatório</mat-error>
+        }
+        @if (form.get('value')?.hasError('positiveValue') && !form.get('value')?.hasError('required') && form.get('value')?.touched) {
+          <mat-error>O valor deve ser maior que zero</mat-error>
+        }
+      </mat-form-field>
+
+      <app-recurrence-selector formControlName="recurrence"></app-recurrence-selector>
+
+      <div class="form-actions">
+        <button
+          mat-flat-button
+          color="primary"
+          type="submit"
+          [disabled]="form.invalid || isLoading()"
+        >
+          @if (isLoading()) {
+            Salvando...
+          } @else {
+            Salvar
+          }
+        </button>
+        <a mat-button routerLink="/expenses" class="cancel-button">Cancelar</a>
+      </div>
+    </form>
+  </div>
+</div>

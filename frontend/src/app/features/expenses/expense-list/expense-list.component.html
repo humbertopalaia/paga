@@ -1,0 +1,163 @@
+<div class="expense-list-container">
+  <div class="expense-list-header">
+    <button mat-flat-button color="primary" routerLink="/expenses/new" class="new-expense-btn">
+      <mat-icon>add</mat-icon>
+      Nova Despesa
+    </button>
+  </div>
+
+  <div class="expense-list-filters">
+    <mat-form-field appearance="outline" class="filter-field filter-field--date">
+      <mat-label>Vencimento de</mat-label>
+      <input matInput
+             [matDatepicker]="pickerFrom"
+             [formControl]="dueDateFromFilter"
+             (dateChange)="onDateFilterChange()" />
+      <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
+      <mat-datepicker #pickerFrom></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="filter-field filter-field--date">
+      <mat-label>Vencimento até</mat-label>
+      <input matInput
+             [matDatepicker]="pickerTo"
+             [formControl]="dueDateToFilter"
+             (dateChange)="onDateFilterChange()" />
+      <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
+      <mat-datepicker #pickerTo></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="filter-field filter-field--type">
+      <mat-label>Tipo</mat-label>
+      <mat-select [formControl]="expenseTypeFilter" (selectionChange)="onTypeFilterChange()">
+        <mat-option [value]="null">Todos</mat-option>
+        @for (type of expenseTypes(); track type.id) {
+          <mat-option [value]="type.id">{{ type.name }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="filter-field filter-field--description">
+      <mat-icon matPrefix>search</mat-icon>
+      <input matInput
+             [formControl]="descriptionFilter"
+             placeholder="Buscar por descrição..." />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="filter-field filter-field--recurring">
+      <mat-label>Recorrente</mat-label>
+      <mat-select [formControl]="isRecurringFilter" (selectionChange)="onRecurringFilterChange()">
+        <mat-option [value]="null">Todos</mat-option>
+        <mat-option [value]="true">Sim</mat-option>
+        <mat-option [value]="false">Não</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <!-- Loading State -->
+  @if (isLoading() && !error()) {
+    <div class="loading-skeleton">
+      @for (row of [1, 2, 3, 4, 5]; track row) {
+        <div class="skeleton-row">
+          <div class="skeleton-cell skeleton-cell--date"></div>
+          <div class="skeleton-cell skeleton-cell--description"></div>
+          <div class="skeleton-cell skeleton-cell--type"></div>
+          <div class="skeleton-cell skeleton-cell--value"></div>
+          <div class="skeleton-cell skeleton-cell--recurring"></div>
+          <div class="skeleton-cell skeleton-cell--actions"></div>
+        </div>
+      }
+    </div>
+  }
+
+  <!-- Error State -->
+  @if (error() && !isLoading()) {
+    <div class="error-state">
+      <mat-icon class="error-state__icon">error_outline</mat-icon>
+      <p class="error-state__message">{{ error() }}</p>
+      <button mat-flat-button color="primary" (click)="loadExpenses()" class="error-state__retry">
+        Tentar Novamente
+      </button>
+    </div>
+  }
+
+  <!-- Empty State -->
+  @if (!isLoading() && !error() && expenses().length === 0) {
+    <div class="empty-state">
+      <mat-icon class="empty-state__icon">receipt_long</mat-icon>
+      <p class="empty-state__message">Nenhum registro encontrado</p>
+      <p class="empty-state__suggestion">Ajuste os filtros ou adicione uma nova despesa.</p>
+    </div>
+  }
+
+  <!-- Table + Pagination -->
+  @if (!isLoading() && !error() && expenses().length > 0) {
+    <table mat-table [dataSource]="expenses()" class="expense-table">
+      <ng-container matColumnDef="dueDate">
+        <th mat-header-cell *matHeaderCellDef>Vencimento</th>
+        <td mat-cell *matCellDef="let expense" [class.overdue-date]="isOverdue(expense)">
+          {{ parseDate(expense.dueDate) | date:'dd/MM/yyyy' }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef>Descrição</th>
+        <td mat-cell *matCellDef="let expense">{{ expense.description }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="expenseTypeName">
+        <th mat-header-cell *matHeaderCellDef>Tipo</th>
+        <td mat-cell *matCellDef="let expense">{{ expense.expenseTypeName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="value">
+        <th mat-header-cell *matHeaderCellDef>Valor</th>
+        <td mat-cell *matCellDef="let expense" class="value-cell">
+          {{ expense.value | currency:'BRL':'symbol':'1.2-2' }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="isRecurring">
+        <th mat-header-cell *matHeaderCellDef>Recorrente</th>
+        <td mat-cell *matCellDef="let expense">{{ expense.isRecurring ? 'Sim' : 'Não' }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Ações</th>
+        <td mat-cell *matCellDef="let expense">
+          <div class="action-buttons">
+            <button class="action-btn action-btn--edit"
+                    (click)="editExpense(expense)"
+                    aria-label="Editar despesa">
+              Editar
+            </button>
+            <button class="action-btn action-btn--delete"
+                    (click)="deleteExpense(expense)"
+                    aria-label="Excluir despesa">
+              Excluir
+            </button>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+          [class.overdue-row]="isOverdue(row)"></tr>
+    </table>
+
+    <!-- Custom Pagination -->
+    @if (totalPages() > 1) {
+      <div class="pagination">
+        @for (page of pages(); track page) {
+          <button class="pagination__btn"
+                  [class.pagination__btn--active]="page === pageNumber()"
+                  (click)="goToPage(page)"
+                  [attr.aria-label]="'Página ' + page"
+                  [attr.aria-current]="page === pageNumber() ? 'page' : null">
+            {{ page }}
+          </button>
+        }
+      </div>
+    }
+  }
+</div>
