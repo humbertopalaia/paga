@@ -1,0 +1,56 @@
+.form-container {
+  display: flex;
+  justify-content: center;
+  padding: var(--spacing-xl);
+}
+
+.form-card {
+  width: 100%;
+  max-width: 500px;
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: var(--spacing-lg);
+}
+
+.form-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 var(--spacing-lg) 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.full-width {
+  width: 100%;
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.cancel-button {
+  color: var(--text-secondary);
+}
+
+.error-state {
+  text-align: center;
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  border: 1px solid var(--danger);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--danger) 5%, transparent);
+
+  p {
+    color: var(--text-secondary);
+    margin: 0 0 var(--spacing-sm) 0;
+  }
+}

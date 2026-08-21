@@ -27,6 +27,25 @@ public class Expense
         Frequency = frequency;
     }
 
+    /// <summary>
+    /// Updates all mutable fields for controlled mutation.
+    /// </summary>
+    /// <param name="dueDate">The new due date for this expense.</param>
+    /// <param name="description">The new description.</param>
+    /// <param name="expenseTypeId">The new expense type identifier.</param>
+    /// <param name="value">The new monetary value.</param>
+    /// <param name="isRecurring">Whether this expense recurs.</param>
+    /// <param name="frequency">The recurrence frequency (required when recurring, null otherwise).</param>
+    public void Update(DateOnly dueDate, string description, int expenseTypeId, decimal value, bool isRecurring, RecurrenceFrequency? frequency)
+    {
+        DueDate = dueDate;
+        Description = description;
+        ExpenseTypeId = expenseTypeId;
+        Value = value;
+        IsRecurring = isRecurring;
+        Frequency = frequency;
+    }
+
     // EF Core requires a parameterless constructor; kept private to enforce invariants.
     private Expense()
     {

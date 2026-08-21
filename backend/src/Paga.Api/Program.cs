@@ -87,6 +87,7 @@ try
     builder.Services.AddScoped<IUserService, UserService>();
     builder.Services.AddScoped<IExpenseTypeService, ExpenseTypeService>();
     builder.Services.AddScoped<IIncomeService, IncomeService>();
+    builder.Services.AddScoped<IExpenseService, ExpenseService>();
     builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
 
     // Health checks
