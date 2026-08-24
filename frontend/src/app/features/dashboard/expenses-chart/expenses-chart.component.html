@@ -1,0 +1,24 @@
+<div class="expenses-chart-card">
+  <h3 class="chart-title">Despesas por Tipo - {{ monthLabel() }}</h3>
+
+  @if (hasData()) {
+    <div class="chart-container">
+      <ngx-charts-bar-horizontal
+        [results]="chartData()"
+        [xAxisLabel]="'Valor'"
+        [yAxisLabel]="'Tipo'"
+        [showXAxisLabel]="false"
+        [showYAxisLabel]="false"
+        [xAxis]="true"
+        [yAxis]="true"
+        [gradient]="false"
+        [scheme]="colorScheme"
+        [showDataLabel]="true"
+        [dataLabelFormatting]="formatCurrency"
+        [xAxisTickFormatting]="formatCurrency">
+      </ngx-charts-bar-horizontal>
+    </div>
+  } @else {
+    <p class="empty-state">Nenhuma despesa registrada neste mês</p>
+  }
+</div>

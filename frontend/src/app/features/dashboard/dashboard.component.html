@@ -1,5 +1,80 @@
-<div class="placeholder-container">
-  <mat-icon class="placeholder-icon">construction</mat-icon>
-  <h2>Dashboard</h2>
-  <p>Em construção</p>
+<div class="dashboard-container">
+  <header class="dashboard-header">
+    <h1 class="dashboard-title">Dashboard</h1>
+
+    <mat-form-field class="month-selector" appearance="outline">
+      <mat-label>Mês</mat-label>
+      <input matInput [matDatepicker]="picker" [value]="selectedMonthDate()" readonly>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker
+        #picker
+        startView="multi-year"
+        (monthSelected)="onMonthSelected($event, picker)">
+      </mat-datepicker>
+    </mat-form-field>
+  </header>
+
+  @if (loading()) {
+    <div class="dashboard-grid">
+      <div class="skeleton-card">
+        <div class="skeleton-line skeleton-title"></div>
+        <div class="skeleton-line skeleton-value"></div>
+        <div class="skeleton-line skeleton-subtitle"></div>
+      </div>
+      <div class="skeleton-card">
+        <div class="skeleton-line skeleton-title"></div>
+        <div class="skeleton-line skeleton-value"></div>
+        <div class="skeleton-line skeleton-subtitle"></div>
+      </div>
+      <div class="skeleton-card">
+        <div class="skeleton-line skeleton-title"></div>
+        <div class="skeleton-line skeleton-value"></div>
+        <div class="skeleton-line skeleton-subtitle"></div>
+      </div>
+    </div>
+    <div class="skeleton-chart">
+      <div class="skeleton-line skeleton-chart-title"></div>
+      <div class="skeleton-line skeleton-bar"></div>
+      <div class="skeleton-line skeleton-bar"></div>
+      <div class="skeleton-line skeleton-bar"></div>
+    </div>
+  }
+
+  @if (error()) {
+    <div class="error-state">
+      <mat-icon class="error-icon">error_outline</mat-icon>
+      <p class="error-message">Erro ao carregar dados</p>
+      <button mat-flat-button color="primary" (click)="retry()">Tentar Novamente</button>
+    </div>
+  }
+
+  @if (data(); as dashboard) {
+    <div class="dashboard-grid">
+      <app-metric-card
+        title="Saldo Atual"
+        [value]="dashboard.currentBalance"
+        [valueColor]="balanceColor()"
+        subtitle="Total acumulado">
+      </app-metric-card>
+
+      <app-metric-card
+        title="Receitas do Mês"
+        [value]="dashboard.monthlyIncome"
+        valueColor="#10b981"
+        [subtitle]="monthLabel()">
+      </app-metric-card>
+
+      <app-metric-card
+        title="Despesas do Mês"
+        [value]="dashboard.monthlyExpense"
+        valueColor="#ef4444"
+        [subtitle]="monthLabel()">
+      </app-metric-card>
+    </div>
+
+    <app-expenses-chart
+      [expensesByType]="dashboard.expensesByType"
+      [monthLabel]="monthLabel()">
+    </app-expenses-chart>
+  }
 </div>
