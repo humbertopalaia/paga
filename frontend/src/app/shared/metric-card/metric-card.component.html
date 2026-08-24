@@ -1,0 +1,9 @@
+<div class="metric-card">
+  <span class="metric-title">{{ title() }}</span>
+  <span class="metric-value" [style.color]="valueColor()">
+    {{ value() | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}
+  </span>
+  @if (subtitle()) {
+    <span class="metric-subtitle">{{ subtitle() }}</span>
+  }
+</div>

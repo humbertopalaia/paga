@@ -1,0 +1,363 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1.1 Create `DashboardResponse` and `ExpenseByTypeItem` DTOs": [
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787322663260
+      },
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787322674085
+      },
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787330754282
+      }
+    ],
+    "1.2 Create `IDashboardService` interface": [
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787322663428
+      },
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787322674807
+      },
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787330755016
+      }
+    ],
+    "2.1 Implement `DashboardService`": [
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787322663506
+      },
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787330765483
+      },
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787330982887
+      }
+    ],
+    "3.1 Create `DashboardController`": [
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787322663687
+      },
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787330994175
+      },
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787331148686
+      }
+    ],
+    "3.2 Register `DashboardService` in DI": [
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787322663781
+      },
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787330994872
+      },
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787331149363
+      }
+    ],
+    "4.1 Write unit tests for `DashboardService`": [
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787322663925
+      },
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787331160214
+      },
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787332213896
+      }
+    ],
+    "5.1 Write integration tests for dashboard endpoint": [
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787322664031
+      },
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787331160828
+      },
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787332214657
+      }
+    ],
+    "6. Checkpoint — Backend verification": [
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787322664116
+      }
+    ],
+    "7.1 Install ngx-charts dependency": [
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787322664182
+      },
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787322675608
+      },
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787330755865
+      }
+    ],
+    "7.2 Create `dashboard.model.ts`": [
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787322664275
+      },
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787330766118
+      },
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787330983735
+      }
+    ],
+    "7.3 Create `DashboardService` (Angular)": [
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787322664359
+      },
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787330766918
+      },
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787330984735
+      }
+    ],
+    "8.1 Create `MetricCardComponent`": [
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787322664442
+      },
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787330767707
+      },
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787330985510
+      }
+    ],
+    "9.1 Create `ExpensesChartComponent`": [
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787322664549
+      },
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787330995773
+      },
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787331150184
+      }
+    ],
+    "10.1 Implement `DashboardComponent`": [
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787322664631
+      },
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787331161599
+      },
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787332215491
+      }
+    ],
+    "11.1 Write tests for `DashboardService`": [
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787322664737
+      },
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787332224968
+      }
+    ],
+    "11.2 Write tests for `MetricCardComponent`": [
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787322664881
+      },
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787332225712
+      }
+    ],
+    "11.3 Write tests for `ExpensesChartComponent`": [
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787322664965
+      },
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787332226582
+      }
+    ],
+    "11.4 Write tests for `DashboardComponent`": [
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787322665041
+      },
+      {
+        "executionId": "c9b16ae7-af0e-43ec-b276-8ad3e499dfe0",
+        "chatSessionId": "sess_84ec7c64-265e-4f62-a703-e4eec07cd5de",
+        "timestamp": 1787333555270
+      },
+      {
+        "executionId": "c9b16ae7-af0e-43ec-b276-8ad3e499dfe0",
+        "chatSessionId": "sess_84ec7c64-265e-4f62-a703-e4eec07cd5de",
+        "timestamp": 1787333965042
+      }
+    ],
+    "12. Checkpoint — Frontend verification": [
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787322665119
+      }
+    ],
+    "14. Final checkpoint": [
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787322665178
+      }
+    ],
+    "1. Backend — DTOs and service interface": [
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787330755061
+      }
+    ],
+    "2. Backend — Service implementation": [
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787330982944
+      }
+    ],
+    "7. Frontend — Install ngx-charts and create model/service": [
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787330984770
+      }
+    ],
+    "8. Frontend — MetricCardComponent (shared)": [
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787330985533
+      }
+    ],
+    "3. Backend — Controller and DI": [
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787331149397
+      }
+    ],
+    "9. Frontend — ExpensesChartComponent": [
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787331150209
+      }
+    ],
+    "4. Backend — Unit tests": [
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787332213953
+      }
+    ],
+    "5. Backend — Integration tests": [
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787332214702
+      }
+    ],
+    "10. Frontend — DashboardComponent (replace placeholder)": [
+      {
+        "executionId": "77fa0df7-971e-4c59-a877-e8054ab57d29",
+        "chatSessionId": "sess_f4704b92-1a03-4fad-bbe0-55df760a7e60",
+        "timestamp": 1787332215568
+      }
+    ]
+  }
+}
