@@ -73,11 +73,11 @@ public class IncomeService : IIncomeService
     /// <inheritdoc />
     public async Task<IncomeResponse> GetByIdAsync(int id, CancellationToken ct = default)
     {
-        var userId = _currentUser.UserId;
+        var val = _currentUser.UserId;
 
         var income = await _context.Incomes
             .AsNoTracking()
-            .Where(i => i.Id == id && i.UserId == userId)
+            .Where(i => i.Id == id)
             .Select(i => new IncomeResponse(
                 i.Id,
                 i.Date.ToString("yyyy-MM-dd"),
@@ -122,10 +122,10 @@ public class IncomeService : IIncomeService
     /// <inheritdoc />
     public async Task<IncomeResponse> UpdateAsync(int id, UpdateIncomeRequest dto, CancellationToken ct = default)
     {
-        var userId = _currentUser.UserId;
+        var val = _currentUser.UserId;
 
         var entity = await _context.Incomes
-            .FirstOrDefaultAsync(i => i.Id == id && i.UserId == userId, ct);
+            .FirstOrDefaultAsync(i => i.Id == id, ct);
 
         if (entity is null)
         {
@@ -150,10 +150,10 @@ public class IncomeService : IIncomeService
     /// <inheritdoc />
     public async Task DeleteAsync(int id, CancellationToken ct = default)
     {
-        var userId = _currentUser.UserId;
+        var val = _currentUser.UserId;
 
         var entity = await _context.Incomes
-            .FirstOrDefaultAsync(i => i.Id == id && i.UserId == userId, ct);
+            .FirstOrDefaultAsync(i => i.Id == id, ct);
 
         if (entity is null)
         {
