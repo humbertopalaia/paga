@@ -53,5 +53,20 @@ public class ExpenseConfiguration : IEntityTypeConfiguration<Expense>
             .WithMany()
             .HasForeignKey(e => e.ExpenseTypeId)
             .OnDelete(DeleteBehavior.Restrict);
+
+        builder.Property(e => e.IsGenerated)
+            .IsRequired()
+            .HasDefaultValue(false);
+
+        builder.Property(e => e.LastGeneratedDate);
+
+        builder.HasOne(e => e.SourceEntry)
+            .WithMany()
+            .HasForeignKey(e => e.SourceEntryId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        builder.HasIndex(e => new { e.SourceEntryId, e.DueDate })
+            .HasFilter("source_entry_id IS NOT NULL")
+            .IsUnique();
     }
 }

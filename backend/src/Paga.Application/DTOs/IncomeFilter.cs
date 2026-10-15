@@ -8,5 +8,6 @@ public record IncomeFilter(
     DateOnly? DateTo,
     string? Description,
     bool? IsRecurring,
+    bool? IsGenerated,
     int PageNumber = 1,
     int PageSize = 10);

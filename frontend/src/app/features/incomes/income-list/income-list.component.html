@@ -89,7 +89,15 @@
 
       <ng-container matColumnDef="description">
         <th mat-header-cell *matHeaderCellDef>Descrição</th>
-        <td mat-cell *matCellDef="let income">{{ income.description }}</td>
+        <td mat-cell *matCellDef="let income">
+          {{ income.description }}
+          @if (income.isGenerated) {
+            <span class="generated-badge" title="Gerada automaticamente" aria-label="Gerada automaticamente">
+              <mat-icon class="generated-badge__icon">autorenew</mat-icon>
+              Auto
+            </span>
+          }
+        </td>
       </ng-container>
 
       <ng-container matColumnDef="value">

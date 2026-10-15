@@ -70,7 +70,7 @@ public class IncomeServiceTests
         var service = CreateService(context);
 
         // Act
-        var result = await service.GetAllAsync(new IncomeFilter(null, null, null, null));
+        var result = await service.GetAllAsync(new IncomeFilter(null, null, null, null, null));
 
         // Assert
         result.Items.Should().HaveCount(2);
@@ -89,7 +89,7 @@ public class IncomeServiceTests
         var service = CreateService(context);
 
         // Act
-        var result = await service.GetAllAsync(new IncomeFilter(new DateOnly(2024, 3, 1), null, null, null));
+        var result = await service.GetAllAsync(new IncomeFilter(new DateOnly(2024, 3, 1), null, null, null, null));
 
         // Assert
         result.Items.Should().HaveCount(2);
@@ -107,7 +107,7 @@ public class IncomeServiceTests
         var service = CreateService(context);
 
         // Act
-        var result = await service.GetAllAsync(new IncomeFilter(null, new DateOnly(2024, 3, 31), null, null));
+        var result = await service.GetAllAsync(new IncomeFilter(null, new DateOnly(2024, 3, 31), null, null, null));
 
         // Assert
         result.Items.Should().HaveCount(2);
@@ -125,7 +125,7 @@ public class IncomeServiceTests
         var service = CreateService(context);
 
         // Act
-        var result = await service.GetAllAsync(new IncomeFilter(null, null, "salário", null));
+        var result = await service.GetAllAsync(new IncomeFilter(null, null, "salário", null, null));
 
         // Assert
         result.Items.Should().HaveCount(2);
@@ -143,7 +143,7 @@ public class IncomeServiceTests
         var service = CreateService(context);
 
         // Act
-        var result = await service.GetAllAsync(new IncomeFilter(null, null, null, true));
+        var result = await service.GetAllAsync(new IncomeFilter(null, null, null, true, null));
 
         // Assert
         result.Items.Should().HaveCount(2);
@@ -161,7 +161,7 @@ public class IncomeServiceTests
         var service = CreateService(context);
 
         // Act
-        var result = await service.GetAllAsync(new IncomeFilter(null, null, null, null));
+        var result = await service.GetAllAsync(new IncomeFilter(null, null, null, null, null));
 
         // Assert
         result.Items.Select(i => i.Description).Should().ContainInOrder("Último", "Meio", "Primeiro");

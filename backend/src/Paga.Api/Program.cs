@@ -88,7 +88,12 @@ try
     builder.Services.AddScoped<IExpenseTypeService, ExpenseTypeService>();
     builder.Services.AddScoped<IIncomeService, IncomeService>();
     builder.Services.AddScoped<IDashboardService, DashboardService>();
+    builder.Services.AddScoped<IExpenseService, ExpenseService>();
     builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
+
+    // Recurring entry generation
+    builder.Services.AddScoped<IRecurringEntryGenerator, RecurringEntryGenerator>();
+    builder.Services.AddHostedService<RecurringEntryGenerationService>();
 
     // Health checks
     builder.Services.AddHealthChecks()

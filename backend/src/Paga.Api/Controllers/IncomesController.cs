@@ -31,11 +31,12 @@ public class IncomesController : ControllerBase
         [FromQuery] DateOnly? dateTo,
         [FromQuery] string? description,
         [FromQuery] bool? isRecurring,
+        [FromQuery] bool? isGenerated,
         [FromQuery] int pageNumber = 1,
         [FromQuery] int pageSize = 10,
         CancellationToken ct = default)
     {
-        var filter = new IncomeFilter(dateFrom, dateTo, description, isRecurring, pageNumber, pageSize);
+        var filter = new IncomeFilter(dateFrom, dateTo, description, isRecurring, isGenerated, pageNumber, pageSize);
         var result = await _incomeService.GetAllAsync(filter, ct);
         return Ok(result);
     }

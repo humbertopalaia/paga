@@ -50,6 +50,11 @@ public class IncomeService : IIncomeService
             query = query.Where(i => i.IsRecurring == filter.IsRecurring.Value);
         }
 
+        if (filter.IsGenerated.HasValue)
+        {
+            query = query.Where(i => i.IsGenerated == filter.IsGenerated.Value);
+        }
+
         var projected = query
             .OrderByDescending(i => i.Date)
             .Select(i => new IncomeResponse(
@@ -58,7 +63,9 @@ public class IncomeService : IIncomeService
                 i.Description,
                 i.Value,
                 i.IsRecurring,
-                i.Frequency != null ? i.Frequency.ToString()!.ToLower() : null));
+                i.Frequency != null ? i.Frequency.ToString()!.ToLower() : null,
+                i.IsGenerated,
+                i.SourceEntryId));
 
         return await projected.ToPagedResultAsync(filter.PageNumber, filter.PageSize, ct);
     }
@@ -77,7 +84,9 @@ public class IncomeService : IIncomeService
                 i.Description,
                 i.Value,
                 i.IsRecurring,
-                i.Frequency != null ? i.Frequency.ToString()!.ToLower() : null))
+                i.Frequency != null ? i.Frequency.ToString()!.ToLower() : null,
+                i.IsGenerated,
+                i.SourceEntryId))
             .FirstOrDefaultAsync(ct);
 
         if (income is null)
@@ -105,7 +114,9 @@ public class IncomeService : IIncomeService
             entity.Description,
             entity.Value,
             entity.IsRecurring,
-            entity.Frequency?.ToString().ToLower());
+            entity.Frequency?.ToString().ToLower(),
+            entity.IsGenerated,
+            entity.SourceEntryId);
     }
 
     /// <inheritdoc />
@@ -131,7 +142,9 @@ public class IncomeService : IIncomeService
             entity.Description,
             entity.Value,
             entity.IsRecurring,
-            entity.Frequency?.ToString().ToLower());
+            entity.Frequency?.ToString().ToLower(),
+            entity.IsGenerated,
+            entity.SourceEntryId);
     }
 
     /// <inheritdoc />
@@ -145,6 +158,16 @@ public class IncomeService : IIncomeService
         if (entity is null)
         {
             throw new NotFoundException("Receita não encontrada.");
+        }
+
+        // Orphan generated children before deleting the source (Requirement 1.10)
+        var generatedChildren = await _context.Incomes
+            .Where(i => i.SourceEntryId == entity.Id)
+            .ToListAsync(ct);
+
+        foreach (var child in generatedChildren)
+        {
+            child.ClearSourceEntry();
         }
 
         _context.Incomes.Remove(entity);

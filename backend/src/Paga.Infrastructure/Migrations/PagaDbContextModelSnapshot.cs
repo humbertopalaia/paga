@@ -50,11 +50,25 @@ namespace Paga.Infrastructure.Migrations
                         .HasColumnType("character varying(10)")
                         .HasColumnName("frequency");
 
+                    b.Property<bool>("IsGenerated")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("boolean")
+                        .HasDefaultValue(false)
+                        .HasColumnName("is_generated");
+
                     b.Property<bool>("IsRecurring")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("boolean")
                         .HasDefaultValue(false)
                         .HasColumnName("is_recurring");
+
+                    b.Property<DateOnly?>("LastGeneratedDate")
+                        .HasColumnType("date")
+                        .HasColumnName("last_generated_date");
+
+                    b.Property<int?>("SourceEntryId")
+                        .HasColumnType("integer")
+                        .HasColumnName("source_entry_id");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uuid")
@@ -70,6 +84,11 @@ namespace Paga.Infrastructure.Migrations
 
                     b.HasIndex("ExpenseTypeId")
                         .HasDatabaseName("ix_expenses_expense_type_id");
+
+                    b.HasIndex("SourceEntryId", "DueDate")
+                        .IsUnique()
+                        .HasDatabaseName("ix_expenses_source_entry_id_due_date")
+                        .HasFilter("source_entry_id IS NOT NULL");
 
                     b.HasIndex("UserId", "DueDate")
                         .HasDatabaseName("ix_expenses_user_id_due_date");
@@ -130,11 +149,25 @@ namespace Paga.Infrastructure.Migrations
                         .HasColumnType("character varying(10)")
                         .HasColumnName("frequency");
 
+                    b.Property<bool>("IsGenerated")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("boolean")
+                        .HasDefaultValue(false)
+                        .HasColumnName("is_generated");
+
                     b.Property<bool>("IsRecurring")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("boolean")
                         .HasDefaultValue(false)
                         .HasColumnName("is_recurring");
+
+                    b.Property<DateOnly?>("LastGeneratedDate")
+                        .HasColumnType("date")
+                        .HasColumnName("last_generated_date");
+
+                    b.Property<int?>("SourceEntryId")
+                        .HasColumnType("integer")
+                        .HasColumnName("source_entry_id");
 
                     b.Property<Guid>("UserId")
                         .HasColumnType("uuid")
@@ -147,6 +180,11 @@ namespace Paga.Infrastructure.Migrations
 
                     b.HasKey("Id")
                         .HasName("pk_incomes");
+
+                    b.HasIndex("SourceEntryId", "Date")
+                        .IsUnique()
+                        .HasDatabaseName("ix_incomes_source_entry_id_date")
+                        .HasFilter("source_entry_id IS NOT NULL");
 
                     b.HasIndex("UserId", "Date")
                         .HasDatabaseName("ix_incomes_user_id_date");
@@ -242,12 +280,20 @@ namespace Paga.Infrastructure.Migrations
                         .IsRequired()
                         .HasConstraintName("fk_expenses_expense_types_expense_type_id");
 
+                    b.HasOne("Paga.Domain.Entities.Expense", "SourceEntry")
+                        .WithMany()
+                        .HasForeignKey("SourceEntryId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .HasConstraintName("fk_expenses_expenses_source_entry_id");
+
                     b.HasOne("Paga.Domain.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("fk_expenses_users_user_id");
+
+                    b.Navigation("SourceEntry");
                 });
 
             modelBuilder.Entity("Paga.Domain.Entities.ExpenseType", b =>
@@ -262,12 +308,20 @@ namespace Paga.Infrastructure.Migrations
 
             modelBuilder.Entity("Paga.Domain.Entities.Income", b =>
                 {
+                    b.HasOne("Paga.Domain.Entities.Income", "SourceEntry")
+                        .WithMany()
+                        .HasForeignKey("SourceEntryId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .HasConstraintName("fk_incomes_incomes_source_entry_id");
+
                     b.HasOne("Paga.Domain.Entities.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
                         .HasConstraintName("fk_incomes_users_user_id");
+
+                    b.Navigation("SourceEntry");
                 });
 
             modelBuilder.Entity("Paga.Domain.Entities.RefreshToken", b =>

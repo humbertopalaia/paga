@@ -32,6 +32,10 @@ export class IncomeService {
       httpParams = httpParams.set('isRecurring', String(params.isRecurring));
     }
 
+    if (params.isGenerated !== undefined && params.isGenerated !== null) {
+      httpParams = httpParams.set('isGenerated', String(params.isGenerated));
+    }
+
     return this.http.get<PaginatedResponse<Income>>(`${this.apiUrl}/incomes`, { params: httpParams });
   }
 

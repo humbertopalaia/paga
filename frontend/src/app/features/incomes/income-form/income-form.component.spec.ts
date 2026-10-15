@@ -53,6 +53,8 @@ describe('IncomeFormComponent', () => {
     value: 5000,
     isRecurring: true,
     frequency: 'monthly',
+    isGenerated: false,
+    sourceEntryId: null,
   };
 
   describe('Create Mode', () => {

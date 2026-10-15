@@ -39,11 +39,30 @@ public class IncomeConfiguration : IEntityTypeConfiguration<Income>
             .HasConversion(new RecurrenceFrequencyConverter())
             .HasMaxLength(10);
 
+        builder.Property(i => i.IsGenerated)
+            .IsRequired()
+            .HasDefaultValue(false);
+
+        builder.Property(i => i.LastGeneratedDate);
+
+        builder.Property(i => i.SourceEntryId);
+
         builder.HasIndex(i => new { i.UserId, i.Date });
 
         builder.HasOne<User>()
             .WithMany()
             .HasForeignKey(i => i.UserId)
             .OnDelete(DeleteBehavior.Cascade);
+
+        // Self-referential FK for recurring generation chain
+        builder.HasOne(i => i.SourceEntry)
+            .WithMany()
+            .HasForeignKey(i => i.SourceEntryId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        // Unique index for idempotency: same source + same date = duplicate
+        builder.HasIndex(i => new { i.SourceEntryId, i.Date })
+            .HasFilter("source_entry_id IS NOT NULL")
+            .IsUnique();
     }
 }

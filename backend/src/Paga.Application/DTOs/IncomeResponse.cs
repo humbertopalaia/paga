@@ -9,4 +9,6 @@ public record IncomeResponse(
     string Description,
     decimal Value,
     bool IsRecurring,
-    string? Frequency);
+    string? Frequency,
+    bool IsGenerated,
+    int? SourceEntryId);

@@ -24,8 +24,8 @@ describe('IncomeListComponent', () => {
 
   const mockIncomes: PaginatedResponse<Income> = {
     items: [
-      { id: 1, date: '2024-03-15', description: 'Salário', value: 5000.5, isRecurring: true, frequency: 'monthly' },
-      { id: 2, date: '2024-02-10', description: 'Freelance', value: 1200.0, isRecurring: false, frequency: null },
+      { id: 1, date: '2024-03-15', description: 'Salário', value: 5000.5, isRecurring: true, frequency: 'monthly', isGenerated: false, sourceEntryId: null },
+      { id: 2, date: '2024-02-10', description: 'Freelance', value: 1200.0, isRecurring: false, frequency: null, isGenerated: false, sourceEntryId: null },
     ],
     pageNumber: 1,
     pageSize: 10,
@@ -241,7 +241,7 @@ describe('IncomeListComponent', () => {
   });
 
   it('should navigate to edit route when edit button clicked', () => {
-    const income: Income = { id: 1, date: '2024-03-15', description: 'Salário', value: 5000, isRecurring: true, frequency: 'monthly' };
+    const income: Income = { id: 1, date: '2024-03-15', description: 'Salário', value: 5000, isRecurring: true, frequency: 'monthly', isGenerated: false, sourceEntryId: null };
     component.editIncome(income);
 
     expect(router.navigate).toHaveBeenCalledWith(['/incomes', 1, 'edit']);
@@ -255,7 +255,7 @@ describe('IncomeListComponent', () => {
     dialogRefSpy.afterClosed.and.returnValue(of(undefined));
     dialogSpy.open.and.returnValue(dialogRefSpy);
 
-    const income: Income = { id: 1, date: '2024-03-15', description: 'Salário', value: 5000, isRecurring: true, frequency: 'monthly' };
+    const income: Income = { id: 1, date: '2024-03-15', description: 'Salário', value: 5000, isRecurring: true, frequency: 'monthly', isGenerated: false, sourceEntryId: null };
     component.deleteIncome(income);
 
     expect(dialogSpy.open).toHaveBeenCalledWith(ConfirmDialogComponent, {
@@ -278,7 +278,7 @@ describe('IncomeListComponent', () => {
     incomeServiceSpy.deleteIncome.and.returnValue(of(undefined as unknown as void));
     incomeServiceSpy.getIncomes.calls.reset();
 
-    const income: Income = { id: 1, date: '2024-03-15', description: 'Salário', value: 5000, isRecurring: true, frequency: 'monthly' };
+    const income: Income = { id: 1, date: '2024-03-15', description: 'Salário', value: 5000, isRecurring: true, frequency: 'monthly', isGenerated: false, sourceEntryId: null };
     component.deleteIncome(income);
 
     expect(incomeServiceSpy.deleteIncome).toHaveBeenCalledWith(1);
@@ -298,7 +298,7 @@ describe('IncomeListComponent', () => {
     dialogRefSpy.afterClosed.and.returnValue(of(undefined));
     dialogSpy.open.and.returnValue(dialogRefSpy);
 
-    const income: Income = { id: 1, date: '2024-03-15', description: 'Salário', value: 5000, isRecurring: false, frequency: null };
+    const income: Income = { id: 1, date: '2024-03-15', description: 'Salário', value: 5000, isRecurring: false, frequency: null, isGenerated: false, sourceEntryId: null };
     component.deleteIncome(income);
 
     expect(incomeServiceSpy.deleteIncome).not.toHaveBeenCalled();
@@ -318,7 +318,7 @@ describe('IncomeListComponent', () => {
     });
     incomeServiceSpy.deleteIncome.and.returnValue(throwError(() => errorResponse));
 
-    const income: Income = { id: 1, date: '2024-03-15', description: 'Salário', value: 5000, isRecurring: false, frequency: null };
+    const income: Income = { id: 1, date: '2024-03-15', description: 'Salário', value: 5000, isRecurring: false, frequency: null, isGenerated: false, sourceEntryId: null };
     component.deleteIncome(income);
 
     expect(snackBarSpy.open).toHaveBeenCalledWith(

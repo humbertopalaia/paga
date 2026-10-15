@@ -2,46 +2,48 @@
 
 ## Status da entrega
 
-O MVP walking skeleton está **concluído e em produção**: Login, shell com menus e cadastro de
-usuário, publicados na AWS por deploy manual.
+O produto está **completo e em produção**. Os seis módulos funcionais — autenticação, usuários,
+tipos de despesa, receitas, despesas e dashboard — estão publicados na AWS, com deploy automático
+por pipeline a cada push na `main`.
 
 | Spec | Stories | Status |
 |------|---------|--------|
 | `mvp-1-backend-foundation` | PP-7, PP-8 | Concluída |
-| `mvp-2-auth-and-users-api` | PP-9, PP-10 | Concluída — restam testes de propriedade opcionais |
-| `mvp-3-frontend-foundation` | PP-57, PP-58, PP-59 | Concluída — restam testes de propriedade opcionais |
+| `mvp-2-auth-and-users-api` | PP-9, PP-10 | Concluída — restam property tests opcionais |
+| `mvp-3-frontend-foundation` | PP-57, PP-58, PP-59 | Concluída — restam property tests opcionais |
 | `mvp-4-login-and-users-ui` | PP-69, PP-70 | Concluída |
-| `mvp-5-infra-manual-deploy` | PP-110 + parte de PP-112 | Concluída |
+| `mvp-5-infra-manual-deploy` | PP-110, PP-125 | Concluída |
 | `aws-deploy-checklist` | — | Concluída |
-| `mvp-6-cicd` | PP-111 | Concluída — pipeline no ar, deploy automático em push na main |
+| `mvp-6-cicd` | PP-111 | Concluída — deploy automático em push na `main` |
+| `module-expense-types` | PP-31, PP-71 | Concluída |
+| `module-incomes` | PP-32, PP-72 | Concluída — restam property tests opcionais |
+| `module-expenses` | PP-33, PP-73 | Concluída — restam property tests opcionais |
+| `module-dashboard` | PP-34, PP-74 | Concluída — restam property tests opcionais |
 
-Ajustes do MVP que continuam valendo no código:
+Estado do código que vale saber antes de mexer:
 
-- A sidebar mostra os cinco itens; Dashboard, Tipos de Despesa, Receitas e Despesas apontam para
-  placeholder "Em construção" até o módulo correspondente ser entregue.
-- `DashboardComponent` existe como placeholder na rota definitiva.
+- Os cinco itens da sidebar apontam para módulos reais. O `PlaceholderComponent` em `shared/` ficou
+  órfão e pode ser removido.
 - O administrador semeado é `palaia@increvasenocanal.com`.
+- Compartilhados em uso por mais de um módulo: `RecurrenceSelectorComponent`, `CurrencyMaskDirective`
+  e `ConfirmDialogComponent`. Reutilize, não recrie.
+- Há **18 tarefas de property test opcionais** acumuladas em `mvp-2`, `mvp-3`, `module-incomes`,
+  `module-expenses` e `module-dashboard`. Decisão pendente: executar num bloco único ou remover dos
+  `tasks.md` para não virar pendência permanente.
+- `DesignTimeDbContextFactory.cs` tem credencial de dev fixa (`postgres/postgres`) num repositório
+  público. Valor inofensivo, padrão ruim. Decisão pendente.
 
 ## Roadmap a partir daqui
 
-Fatias verticais por módulo: cada spec junta a história de API com a de tela do mesmo módulo, e
-termina com a fatia funcionando em produção — agora automaticamente, via pipeline.
-
 | Ordem | Spec | Stories | Observação |
 |-------|------|---------|------------|
-| 1 | `module-expense-types` | PP-31 + PP-71 | Pré-requisito de Despesas |
-| 2 | `module-incomes` | PP-32 + PP-72 | Independente |
-| 3 | `module-expenses` | PP-33 + PP-73 | Depende de `module-expense-types` |
-| 4 | `module-dashboard` | PP-34 + PP-74 | Depende de Receitas e Despesas |
-| 5 | `mvp-7-hardening` | PP-112: PP-127, PP-128, PP-129, PP-130, PP-131 | Rate limiting, backup, logging, teste em produção |
-| 6 | `mvp-8-custom-domain` | PP-112: PP-126 | Domínio próprio, ACM, TLS na origem |
-| 7 | `docs-and-adrs` | PP-132 | Fecha o board |
+| 1 | `mvp-7-hardening` | PP-127, PP-128, PP-129, PP-130, PP-131 | Rate limiting, security headers, backup, logging, teste em produção |
+| 2 | `mvp-8-custom-domain` | PP-126 | Domínio próprio, ACM, TLS na origem |
+| 3 | `docs-and-adrs` | PP-132 | Fecha o board |
 
-**Dívida técnica em produção, postergada por decisão explícita do usuário** para depois dos módulos
-de negócio: CloudFront → EC2 em HTTP, sem rate limiting, sem security headers e **sem backup do
-banco**. Aceitável enquanto a base só tem o administrador semeado e dados de teste. O gatilho para
-antecipar a `mvp-7` é o usuário começar a inserir lançamento financeiro real — a partir daí, perder
-o banco passa a doer.
+**Dívida técnica em produção:** CloudFront → EC2 em HTTP, sem rate limiting, sem security headers e
+sem backup do banco. Com o produto completo, o gatilho que registramos — começar a lançar dado
+financeiro real — está iminente, então a `mvp-7` deixou de ser postergável com conforto.
 
 Ao concluir cada spec, transicione as histórias no Jira para Concluído (transição id `41`).
 

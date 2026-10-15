@@ -5,6 +5,8 @@ export interface Income {
   value: number;
   isRecurring: boolean;
   frequency: string | null; // 'weekly' | 'monthly' | 'yearly' | null
+  isGenerated: boolean;
+  sourceEntryId: number | null;
 }
 
 export interface CreateIncomeRequest {
@@ -28,6 +30,7 @@ export interface IncomeListParams {
   dateTo?: string;
   description?: string;
   isRecurring?: boolean;
+  isGenerated?: boolean;
   pageNumber: number;
   pageSize: number;
 }

@@ -29,8 +29,8 @@ describe('IncomeService', () => {
   describe('getIncomes', () => {
     const mockResponse: PaginatedResponse<Income> = {
       items: [
-        { id: 1, date: '2024-03-15', description: 'Salário', value: 5000, isRecurring: true, frequency: 'monthly' },
-        { id: 2, date: '2024-03-20', description: 'Freelance', value: 1500, isRecurring: false, frequency: null }
+        { id: 1, date: '2024-03-15', description: 'Salário', value: 5000, isRecurring: true, frequency: 'monthly', isGenerated: false, sourceEntryId: null },
+        { id: 2, date: '2024-03-20', description: 'Freelance', value: 1500, isRecurring: false, frequency: null, isGenerated: false, sourceEntryId: null }
       ],
       pageNumber: 1,
       pageSize: 10,
@@ -169,7 +169,9 @@ describe('IncomeService', () => {
         description: 'Dividendos',
         value: 250.50,
         isRecurring: false,
-        frequency: null
+        frequency: null,
+        isGenerated: false,
+        sourceEntryId: null
       };
 
       service.getIncome(3).subscribe(result => {
@@ -197,7 +199,9 @@ describe('IncomeService', () => {
         description: 'Salário Abril',
         value: 6000,
         isRecurring: true,
-        frequency: 'monthly'
+        frequency: 'monthly',
+        isGenerated: false,
+        sourceEntryId: null
       };
 
       service.createIncome(payload).subscribe(result => {
@@ -224,7 +228,9 @@ describe('IncomeService', () => {
         description: 'Venda de equipamento',
         value: 800,
         isRecurring: false,
-        frequency: null
+        frequency: null,
+        isGenerated: false,
+        sourceEntryId: null
       };
 
       service.createIncome(payload).subscribe(result => {
@@ -253,7 +259,9 @@ describe('IncomeService', () => {
         description: 'Salário Atualizado',
         value: 6500,
         isRecurring: true,
-        frequency: 'monthly'
+        frequency: 'monthly',
+        isGenerated: false,
+        sourceEntryId: null
       };
 
       service.updateIncome(4, payload).subscribe(result => {
