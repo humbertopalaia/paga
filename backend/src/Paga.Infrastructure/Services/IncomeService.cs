@@ -160,9 +160,8 @@ public class IncomeService : IIncomeService
             throw new NotFoundException("Receita não encontrada.");
         }
 
-        // Orphan generated children before deleting the source (Requirement 1.10)
         var generatedChildren = await _context.Incomes
-            .Where(i => i.SourceEntryId == entity.Id)
+            .Where(i => i.SourceEntryId == entity.Id && i.UserId == userId)
             .ToListAsync(ct);
 
         foreach (var child in generatedChildren)
