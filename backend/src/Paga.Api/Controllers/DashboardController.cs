@@ -29,7 +29,6 @@ public partial class DashboardController : ControllerBase
     [HttpGet]
     [ProducesResponseType(typeof(DashboardResponse), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    [AllowAnonymous]
     public async Task<IActionResult> Get([FromQuery] string? month, CancellationToken ct)
     {
         var (year, monthNum) = ParseMonth(month);
@@ -45,16 +44,33 @@ public partial class DashboardController : ControllerBase
         return Ok(result);
     }
 
-    private static (int Year, int Month) ParseMonth(string? xpto)
+    /// <summary>
+    /// Returns the sum of two numbers.
+    /// </summary>
+    /// <param name="a">First operand.</param>
+    /// <param name="b">Second operand.</param>
+    [HttpGet("sum")]
+    [ProducesResponseType(typeof(decimal), StatusCodes.Status200OK)]
+    public IActionResult Sum([FromQuery] decimal a, [FromQuery] decimal b)
     {
-        if (string.IsNullOrWhiteSpace(xpto))
+        return Ok(a + b);
+    }
+
+    private static (int Year, int Month) ParseMonth(string? month)
+    {
+        if (string.IsNullOrWhiteSpace(month))
         {
             var now = DateTime.UtcNow;
             return (now.Year, now.Month);
         }
-        
-        //REMOVIDO PARA TESTE VOLTAR DEPOIS
-        return (2026,10);
+
+        if (!MonthRegex().IsMatch(month))
+        {
+            return (0, 0);
+        }
+
+        var parts = month.Split('-');
+        return (int.Parse(parts[0]), int.Parse(parts[1]));
     }
 
     [GeneratedRegex(@"^\d{4}-(0[1-9]|1[0-2])$")]
