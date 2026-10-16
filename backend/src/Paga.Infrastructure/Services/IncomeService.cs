@@ -73,11 +73,11 @@ public class IncomeService : IIncomeService
     /// <inheritdoc />
     public async Task<IncomeResponse> GetByIdAsync(int id, CancellationToken ct = default)
     {
-        var val = _currentUser.UserId;
+        var userId = _currentUser.UserId;
 
         var income = await _context.Incomes
             .AsNoTracking()
-            .Where(i => i.Id == id)
+            .Where(i => i.Id == id && i.UserId == userId)
             .Select(i => new IncomeResponse(
                 i.Id,
                 i.Date.ToString("yyyy-MM-dd"),
@@ -122,10 +122,10 @@ public class IncomeService : IIncomeService
     /// <inheritdoc />
     public async Task<IncomeResponse> UpdateAsync(int id, UpdateIncomeRequest dto, CancellationToken ct = default)
     {
-        var val = _currentUser.UserId;
+        var userId = _currentUser.UserId;
 
         var entity = await _context.Incomes
-            .FirstOrDefaultAsync(i => i.Id == id, ct);
+            .FirstOrDefaultAsync(i => i.Id == id && i.UserId == userId, ct);
 
         if (entity is null)
         {
@@ -150,19 +150,18 @@ public class IncomeService : IIncomeService
     /// <inheritdoc />
     public async Task DeleteAsync(int id, CancellationToken ct = default)
     {
-        var val = _currentUser.UserId;
+        var userId = _currentUser.UserId;
 
         var entity = await _context.Incomes
-            .FirstOrDefaultAsync(i => i.Id == id, ct);
+            .FirstOrDefaultAsync(i => i.Id == id && i.UserId == userId, ct);
 
         if (entity is null)
         {
             throw new NotFoundException("Receita não encontrada.");
         }
 
-        // Orphan generated children before deleting the source (Requirement 1.10)
         var generatedChildren = await _context.Incomes
-            .Where(i => i.SourceEntryId == entity.Id)
+            .Where(i => i.SourceEntryId == entity.Id && i.UserId == userId)
             .ToListAsync(ct);
 
         foreach (var child in generatedChildren)
