@@ -44,6 +44,18 @@ public partial class DashboardController : ControllerBase
         return Ok(result);
     }
 
+    /// <summary>
+    /// Returns the sum of two numbers.
+    /// </summary>
+    /// <param name="a">First operand.</param>
+    /// <param name="b">Second operand.</param>
+    [HttpGet("sum")]
+    [ProducesResponseType(typeof(decimal), StatusCodes.Status200OK)]
+    public IActionResult Sum([FromQuery] decimal a, [FromQuery] decimal b)
+    {
+        return Ok(a + b);
+    }
+
     private static (int Year, int Month) ParseMonth(string? month)
     {
         if (string.IsNullOrWhiteSpace(month))
